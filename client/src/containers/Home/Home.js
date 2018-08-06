@@ -1,17 +1,16 @@
 import React, { Component } from "react";
+import { getStatus } from "../../helpers/api";
 
 class Home extends Component {
   state = {
     status: ""
   };
   componentDidMount() {
-    fetch("http://localhost:4000/api/status")
-      .then(res => res.json())
-      .then(data => {
-        this.setState({
-          status: JSON.stringify(data)
-        });
+    getStatus().then(data => {
+      this.setState({
+        status: JSON.stringify(data)
       });
+    });
   }
 
   render() {
