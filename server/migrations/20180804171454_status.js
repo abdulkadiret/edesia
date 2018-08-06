@@ -1,11 +1,12 @@
-exports.up = function (knex, Promise) {
-    return knex.raw(
-        `
+exports.up = function(knex, Promise) {
+  return knex.raw(
+    `
     CREATE  TABLE status (
         status varchar(200)
     )
     `
-    )
-}
+  );
+};
 
-exports.down = function (knex, Promise) { }
+//sql injection
+exports.down = function(knex, Promise) {};
