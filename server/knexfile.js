@@ -1,8 +1,18 @@
 module.exports = {
   development: {
-    client: "sqlite3",
+    client: "postgresql",
     connection: {
-      filename: "./dev.sqlite3"
+      host: process.env.DB_HOST || "localhost",
+      database: process.env.DB_NAME || "edesia",
+      user: process.env.DB_USER || "cyf",
+      password: process.env.DB_PASSWORD || "password"
+    },
+    pool: {
+      min: 2,
+      max: 10
+    },
+    migrations: {
+      tableName: "knex_migrations"
     }
   },
 
