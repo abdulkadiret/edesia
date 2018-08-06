@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 const exphbs = require("express-handlebars");
+const api = require("./api");
+const admin = require("./admin");
 
 app.engine(
   "hbs",
@@ -14,14 +16,11 @@ app.engine(
 app.set("view engine", "hbs");
 
 app.use(cors());
-app.get("/", (req, res) => res.render("home"));
-app.get("/admin/drivers", (req, res) => res.render("drivers"));
 
-app.get("/api/status", (req, res) => {
-  res.send({
-    status: "OK"
-  });
-});
+app.use("/api", api);
+app.use("/admin", admin);
+
+app.get("/", (req, res) => res.render("home"));
 
 app.listen(SERVER_PORT, () =>
   console.log(`edesia server running on ${SERVER_PORT}`)
