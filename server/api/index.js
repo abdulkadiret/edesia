@@ -12,4 +12,9 @@ router.get("/users", (req, res) => {
     res.send(data);
   });
 });
+router.get("/deliveries", (req, res) => {
+  db.getDeliveries().then(data => {
+    res.send(data);
+  });
+});
 module.exports = router;
