@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     .then(function() {
       // Inserts seed entries
       return knex("deliveries").insert([
-        { storeId: 1, address: "Govan" },
-        { storeId: 2, address: "Parkhead" }
+        { address: "Govan" },
+        { address: "Parkhead" }
       ]);
     });
 };
