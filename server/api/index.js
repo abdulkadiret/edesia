@@ -12,4 +12,9 @@ router.get("/users", (req, res) => {
     res.send(data);
   });
 });
+router.get("/deliveries", async (req, res) => {
+  const data = await db.getDeliveries();
+  res.send(data);
+});
+
 module.exports = router;

@@ -5,7 +5,11 @@ const knex = require("knex")(config);
 const getUsers = () => {
   return knex.select().from("users");
 };
+const getDeliveries = () => {
+  return knex.select().from("deliveries");
+};
 
 module.exports = {
-  getUsers: getUsers
+  getUsers: getUsers,
+  getDeliveries: getDeliveries
 };
