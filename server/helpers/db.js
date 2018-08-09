@@ -6,6 +6,11 @@ const getUsers = () => {
   return knex.select().from("users");
 };
 
+const getStores = () => {
+  return knex.select().from("stores");
+};
+
 module.exports = {
-  getUsers: getUsers
+  getUsers: getUsers,
+  getStores
 };
