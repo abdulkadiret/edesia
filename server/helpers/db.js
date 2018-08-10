@@ -8,8 +8,12 @@ const getUsers = () => {
 const getDeliveries = () => {
   return knex.select().from("deliveries");
 };
+const getDrivers = () => {
+  return knex.select().from("drivers");
+};
 
 module.exports = {
   getUsers: getUsers,
-  getDeliveries: getDeliveries
+  getDeliveries: getDeliveries,
+  getDrivers: getDrivers
 };

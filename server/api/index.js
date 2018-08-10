@@ -16,5 +16,10 @@ router.get("/deliveries", async (req, res) => {
   const data = await db.getDeliveries();
   res.send(data);
 });
+router.get("/dirvers", (req, res) => {
+  db.getDrivers().then(data => {
+    res.send(data);
+  });
+});
 
 module.exports = router;
