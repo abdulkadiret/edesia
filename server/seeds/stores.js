@@ -5,8 +5,8 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('stores').insert([
-        { address: "Marhall"},
-        { address: "Springburn"},
+        { area: "Marhall", city: "Glasgow", address:"g4 5vb"},
+        { area: "Springburn", city:"Glasgow", address:"g20 7ac"}
       ]);
     });
 };
