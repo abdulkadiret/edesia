@@ -7,9 +7,10 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 0",
     "dev": "nodemon app.js",
-    "migrate": "(dropdb edesia && createdb edesia) && knex migrate:latest && knex seed:run",
+    "migrate": "knex migrate:latest && knex seed:run",
     "create-migration": "knex migrate:make $1",
-    "create-seed": "knex seed:make $1"
+    "create-seed": "knex seed:make $1",
+    "recreate-db": "dropdb edesia && createdb edesia"
   },
   "author": "",
   "license": "ISC",
