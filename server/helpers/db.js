@@ -12,8 +12,13 @@ const getDrivers = () => {
   return knex.select().from("drivers");
 };
 
+const getStores = () => {
+  return knex.select().from("stores");
+};
+
 module.exports = {
-  getUsers: getUsers,
-  getDeliveries: getDeliveries,
-  getDrivers: getDrivers
+  getUsers,
+  getDeliveries,
+  getDrivers,
+  getStores
 };
