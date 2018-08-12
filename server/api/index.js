@@ -29,4 +29,10 @@ router.get("/drivers", async (req, res) => {
   res.send(data);
 });
 
+router.get("/contacts", (req, res) => {
+  db.getContacts().then(data => {
+    res.send(data);
+  });
+});
+
 module.exports = router;
