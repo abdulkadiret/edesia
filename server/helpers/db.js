@@ -16,9 +16,14 @@ const getStores = () => {
   return knex.select().from("stores");
 };
 
+const getContacts =() => {
+  return knex.select().from("contacts");
+}
+
 module.exports = {
   getUsers,
   getDeliveries,
   getDrivers,
-  getStores
+  getStores,
+  getContacts,
 };
