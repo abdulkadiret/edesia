@@ -5,6 +5,11 @@ const cors = require("cors");
 const exphbs = require("express-handlebars");
 const api = require("./api");
 const admin = require("./admin");
+require("./passport");
+const auth = require("./routes/auth");
+const user = require("./routes/user");
+app.use("/auth", auth);
+app.use("/user", passport.authenticate("jwt", { session: false }), user);
 
 app.engine(
   "hbs",
