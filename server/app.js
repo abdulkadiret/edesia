@@ -5,6 +5,7 @@ const cors = require("cors");
 const exphbs = require("express-handlebars");
 const api = require("./api");
 const admin = require("./admin");
+const bodyParser = require("body-parser");
 
 app.engine(
   "hbs",
@@ -15,6 +16,7 @@ app.engine(
 );
 
 app.set("view engine", "hbs");
+app.use(bodyParser.json());
 
 app.use(cors());
 
