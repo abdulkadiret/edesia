@@ -3,6 +3,7 @@ exports.up = async (knex, Promise) => {
     table.increments("user_id");
     table.string("name");
     table.string("email");
+    table.string("password");
   });
 
   await knex.schema.createTable("stores", table => {

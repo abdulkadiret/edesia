@@ -5,6 +5,17 @@ const knex = require("knex")(config);
 const getUsers = () => {
   return knex.select().from("users");
 };
+const getSingleUser = (email, password) => {
+  return knex("users")
+    .where({ email, password })
+    .first();
+};
+const getUserProfile = userId => {
+  return knex("users")
+    .select("user_id", "email", "name")
+    .where({ user_id: userId })
+    .first();
+};
 const getDeliveries = () => {
   return knex.select().from("deliveries");
 };
@@ -16,9 +27,9 @@ const getStores = () => {
   return knex.select().from("stores");
 };
 
-const getContacts =() => {
+const getContacts = () => {
   return knex.select().from("contacts");
-}
+};
 
 module.exports = {
   getUsers,
@@ -26,4 +37,6 @@ module.exports = {
   getDrivers,
   getStores,
   getContacts,
+  getSingleUser,
+  getUserProfile
 };

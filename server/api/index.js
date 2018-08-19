@@ -30,9 +30,9 @@ router.get("/drivers", async (req, res) => {
 });
 
 router.get("/items", (req, res) => {
-  db.getItems().then(data => {
-  });
-  
+  db.getItems().then(data => {});
+});
+
 router.get("/contacts", (req, res) => {
   db.getContacts().then(data => {
     res.send(data);
