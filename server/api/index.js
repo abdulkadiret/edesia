@@ -40,9 +40,14 @@ router.get("/contacts", (req, res) => {
   });
 });
 
-router.put("/users/:user_id", (req, res) => {
-  console.log(req.params);
-  console.log(req.body);
+router.put("/users/:user_id", async (req, res) => {
+  const { body } = req;
+  try {
+    await db.updateUser(body);
+    res.status(200).json({ success: true, data: {} });
+  } catch (error) {
+    res.status(502).json({ success: false });
+  }
 });
 
 module.exports = router;
