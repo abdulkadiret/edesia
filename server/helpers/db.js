@@ -16,14 +16,18 @@ const getStores = () => {
   return knex.select().from("stores");
 };
 
-const getContacts =() => {
+const getContacts = () => {
   return knex.select().from("contacts");
-}
+};
 
+const updateUsers =()=>{
+  return knex.update().from("users")
+}
 module.exports = {
   getUsers,
   getDeliveries,
   getDrivers,
   getStores,
   getContacts,
+  updateUsers
 };
