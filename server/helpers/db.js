@@ -20,14 +20,22 @@ const getContacts = () => {
   return knex.select().from("contacts");
 };
 
-const updateUsers =()=>{
-  return knex.update().from("users")
-}
+const updateUser = data => {
+  return knex
+    .table("users")
+    .where("user_id", "=", data.user_id)
+    .update({
+      name: data.name,
+      email: data.email,
+      city: data.city,
+      postcode: data.postcode
+    });
+};
 module.exports = {
   getUsers,
   getDeliveries,
   getDrivers,
   getStores,
   getContacts,
-  updateUsers
+  updateUser
 };
