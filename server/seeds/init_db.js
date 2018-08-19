@@ -15,7 +15,7 @@ exports.seed = async (knex, Promise) => {
     .del()
     .then(function() {
       // Inserts seed entries
-      return knex("users").insert([{ name: "mat" }, { name: "awet" }]);
+      return knex("users").insert([{ name: "mat",city:"Glasgow", postcode: "G20 3CC" }, { name: "awet", city:"Edinburgh", postcode:"E2 5FA" }]);
     });
 
   await knex("stores")
