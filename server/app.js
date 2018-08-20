@@ -20,6 +20,7 @@ app.engine(
 );
 
 app.set("view engine", "hbs");
+app.use(bodyParser.json());
 
 app.use(cors());
 app.use(bodyParser.json());

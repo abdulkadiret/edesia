@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "../Home/Home";
 import Deliveries from "../Deliveries/Deliveries";
-import DriversRegistration from "../Drivers/Register";
+import UpdateProfile from "../Drivers/UpdateProfile"
 
 class App extends Component {
   render() {
@@ -26,7 +26,7 @@ class App extends Component {
 
           <Route exact path="/" component={Home} />
           <Route path="/deliveries" component={Deliveries} />
-          <Route path="/drivers-register" component={DriversRegistration} />
+          <Route path="/drivers-register" component={UpdateProfile} />
         </div>
       </Router>
     );

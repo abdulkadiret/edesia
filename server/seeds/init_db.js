@@ -16,8 +16,20 @@ exports.seed = async (knex, Promise) => {
     .then(function() {
       // Inserts seed entries
       return knex("users").insert([
-        { name: "mat", email: "mat@gmail.com", password: "password1" },
-        { name: "awet", email: "awet@yahoo.com", password: "password2" }
+        {
+          name: "mat",
+          city: "Glasgow",
+          postcode: "G20 3CC",
+          email: "mat@gmail.com",
+          password: "password1"
+        },
+        {
+          name: "awet",
+          city: "Edinburgh",
+          postcode: "E2 5FA",
+          email: "awet@yahoo.com",
+          password: "password2"
+        }
       ]);
     });
 
