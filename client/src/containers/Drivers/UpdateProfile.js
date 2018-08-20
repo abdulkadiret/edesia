@@ -88,8 +88,12 @@ class Register extends Component {
               <button className="btn submit">submit </button>
             </div>
           </form>
-          {this.state.status === 200 ? "Success" : null}
-          {this.state.status === 502 ? "sorry try again" : null}
+          {this.state.status === 200
+            ? "Your information has been updated successfully"
+            : null}
+          {this.state.status === 502
+            ? "An error occurred while updating your profile. Please try again"
+            : null}
         </div>
       </div>
     );
