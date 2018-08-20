@@ -5,6 +5,7 @@ exports.up = async (knex, Promise) => {
     table.string("email");
     table.string("city").defaultTo("Glasgow");
     table.string("postcode").notNullable()
+    table.string("password");
   });
 
   await knex.schema.createTable("stores", table => {
