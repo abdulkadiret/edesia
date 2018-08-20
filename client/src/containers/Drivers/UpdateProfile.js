@@ -12,8 +12,6 @@ class Register extends Component {
       postcode: "",
       status: null
     };
-    // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange = e => {
@@ -23,7 +21,6 @@ class Register extends Component {
   };
 
   handleSubmit = event => {
-    event.preventDefault();
     let content = {
       user_id: this.state.user_id,
       name: this.state.name,
