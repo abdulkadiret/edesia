@@ -8,7 +8,7 @@ class Register extends Component {
     this.state = {
       user_id: "",
       name: "",
-      city: "",
+      city: "Glasgow",
       postcode: "",
       status: null
     };
