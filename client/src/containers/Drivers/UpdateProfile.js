@@ -27,13 +27,11 @@ class Register extends Component {
       city: this.state.city,
       postcode: this.state.postcode
     };
-    axios
-      .put("http://localhost:4000/api/users/user_id", content)
-      .then(response =>
-        this.setState({
-          status: response.status
-        })
-      );
+    axios.put("/api/users/user_id", content).then(response =>
+      this.setState({
+        status: response.status
+      })
+    );
   };
 
   render() {
