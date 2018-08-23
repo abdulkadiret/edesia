@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./UpdateProfile.css";
 import axios from "axios";
 
-class Register extends Component {
+class UpdateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -98,4 +98,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default UpdateProfile;
