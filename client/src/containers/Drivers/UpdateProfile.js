@@ -6,7 +6,6 @@ class UpdateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user_id: "",
       name: "",
       city: "Glasgow",
       postcode: "",
@@ -22,7 +21,6 @@ class UpdateProfile extends Component {
 
   handleSave = event => {
     let content = {
-      user_id: this.state.user_id,
       name: this.state.name,
       city: this.state.city,
       postcode: this.state.postcode
@@ -40,15 +38,7 @@ class UpdateProfile extends Component {
         <div className="col">
           <h2>Update Profile</h2>
           <form className="form" name="form" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <label> User ID:</label>
-              <input
-                type="user_id"
-                name="user_id"
-                onChange={this.handleChange}
-              />
-            </div>
-
+            
             <div className="form-group">
               <label> Name:</label>
               <input type="name" name="name" onChange={this.handleChange} />
