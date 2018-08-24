@@ -20,7 +20,7 @@ class UpdateProfile extends Component {
     this.setState(change);
   };
 
-  handleSubmit = event => {
+  handleSave = event => {
     let content = {
       user_id: this.state.user_id,
       name: this.state.name,
@@ -83,7 +83,7 @@ class UpdateProfile extends Component {
             </div>
 
             <div className="form-group">
-              <button className="btn submit">submit </button>
+              <button className="btn submit">Save </button>
             </div>
           </form>
           {this.state.status === 200
