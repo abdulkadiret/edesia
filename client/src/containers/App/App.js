@@ -3,12 +3,11 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "../Home/Home";
 import Deliveries from "../Deliveries/Deliveries";
-import UpdateProfile from "../Drivers/UpdateProfile";
+// import UpdateProfile from "../Drivers/UpdateProfile";
 import Profile from "../Profile/Profile";
 import Login from "../../components/Login/Login";
 import Register from "../../components/Register/Register";
 import axios from "axios";
-
 
 class App extends Component {
   state = {
@@ -26,7 +25,8 @@ class App extends Component {
   };
   render() {
     const token = localStorage.getItem("jwtToken");
-    return <Router>
+    return (
+      <Router>
         <div className="app">
           <ul>
             <li>
@@ -43,23 +43,28 @@ class App extends Component {
             <li>
               <Link to="/register">Register</Link>
             </li>
-            {token ? <li>
+            {token ? (
+              <li>
                 <Link to="/profile">Profile</Link>
-              </li> : null}
-            {token ? <li>
+              </li>
+            ) : null}
+            {token ? (
+              <li>
                 <button className="btn btn-primary" onClick={this.logout}>
                   Logout
                 </button>
-              </li> : null}
+              </li>
+            ) : null}
           </ul>
           <hr />
           <Route exact path="/" component={Home} />
           <Route path="/deliveries" component={Deliveries} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          {token ? <Route path="/profile" component={Profile} component={UpdateProfile} /> : null}
+          {token ? <Route path="/profile" component={Profile} /> : null}
         </div>
-      </Router>;
+      </Router>
+    );
   }
 }
 export default App;
