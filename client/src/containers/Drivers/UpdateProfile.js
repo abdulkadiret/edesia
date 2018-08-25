@@ -30,6 +30,7 @@ class UpdateProfile extends Component {
         status: response.status
       })
     );
+    event.preventDefault();
   };
 
   render() {
