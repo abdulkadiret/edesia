@@ -37,8 +37,7 @@ class UpdateProfile extends Component {
       <div>
         <div className="col">
           <h2>Update Profile</h2>
-          <form className="form" name="form" onSubmit={this.handleSubmit}>
-            
+          <form className="form" name="form" onClick={this.handleSave}>
             <div className="form-group">
               <label> Name:</label>
               <input type="name" name="name" onChange={this.handleChange} />
