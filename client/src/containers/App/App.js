@@ -35,13 +35,16 @@ class App extends Component {
             <li>
               <Link to="/deliveries">Deliveries</Link>
             </li>
-
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
+            {!token ? (
+              <li>
+                <Link to="/login">Login</Link>
+              </li>
+            ) : null}
+            {!token ? (
+              <li>
+                <Link to="/register">Register</Link>
+              </li>
+            ) : null}
             {token ? (
               <li>
                 <Link to="/profile">Profile</Link>
