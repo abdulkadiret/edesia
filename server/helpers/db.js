@@ -36,7 +36,7 @@ const getContacts = () => {
   return knex.select().from("contacts");
 };
 
-const updateUser = data => {
+const editUserProfile = data => {
   return knex
     .table("users")
     .where("user_id", "=", data.user_id)
@@ -53,7 +53,7 @@ module.exports = {
   getDrivers,
   getStores,
   getContacts,
-  updateUser,
+  editUserProfile,
   getSingleUser,
   getUserProfile,
   saveUser

@@ -53,9 +53,9 @@ router.get("/contacts", (req, res) => {
 });
 
 router.put("/users/:user_id", async (req, res) => {
-  const { body } = req;
+  const { body } = req.body;
   try {
-    await db.updateUser(body);
+    await db.editUserProfile(body);
     res.status(200).json({ success: true, data: {} });
   } catch (error) {
     res.status(502).json({ success: false });
