@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./UpdateProfile.css";
-import axios from "axios";
-// import { getUserProfile} from "../../helpers/api"
+import { updateUserProfile } from "../../helpers/api";
 
 class UpdateProfile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      user_id: null,
       name: "",
       city: "Glasgow",
       postcode: "",
@@ -20,6 +20,12 @@ class UpdateProfile extends Component {
     this.setState(change);
   };
 
+  componentDidMount() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const user_id = user.user_id;
+    this.setState({ user_id: user_id });
+  }
+
   handleSave = event => {
     event.preventDefault();
     let content = {
@@ -27,16 +33,13 @@ class UpdateProfile extends Component {
       city: this.state.city,
       postcode: this.state.postcode
     };
-      axios.put("/api/users/:user_id", content).then(response =>
-      this.setState({
-        status: response.status
-      })
+    updateUserProfile(this.state.user_id, content).then(response =>
+      this.setState({ status: response.status })
     );
     event.target.value = "";
   };
 
   render() {
-      
     return (
       <div>
         <div className="col">
