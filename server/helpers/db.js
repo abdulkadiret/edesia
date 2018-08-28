@@ -36,10 +36,10 @@ const getContacts = () => {
   return knex.select().from("contacts");
 };
 
-const editUserProfile = data => {
+const editUserProfile = (user_id,data) => {
   return knex
     .table("users")
-    .where("user_id", "=", data.user_id)
+    .where("user_id", "=", user_id)
     .update({
       name: data.name,
       email: data.email,

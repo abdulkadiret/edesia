@@ -25,7 +25,8 @@ class App extends Component {
   };
   render() {
     const token = localStorage.getItem("jwtToken");
-    return <Router>
+    return (
+      <Router>
         <div className="app">
           <ul>
             <li>
@@ -48,12 +49,15 @@ class App extends Component {
             {token ? (
               <li>
                 <Link to="/profile">Profile</Link>
-            </li> ): null}
-            {token ? <li>
+              </li>
+            ) : null}
+            {token ? (
+              <li>
                 <button className="btn btn-primary" onClick={this.logout}>
                   Logout
                 </button>
-              </li> : null}
+              </li>
+            ) : null}
           </ul>
           <hr />
           <Route exact path="/" component={Home} />
@@ -61,9 +65,10 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           {token ? <Route path="/profile" component={Profile} /> : null}
-        <Route path="/profile/updateProfile" component={UpdateProfile} />
+          <Route path="/profile/updateProfile" component={UpdateProfile} />
         </div>
-      </Router>;
+      </Router>
+    );
   }
 }
 export default App;
