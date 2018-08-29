@@ -3,6 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Home from "../Home/Home";
 import Deliveries from "../Deliveries/Deliveries";
+import UpdateProfile from "../Profile/UpdateProfile";
 import Profile from "../Profile/Profile";
 import Login from "../../components/Login/Login";
 import Register from "../../components/Register/Register";
@@ -20,7 +21,7 @@ class App extends Component {
   };
   logout = () => {
     localStorage.removeItem("jwtToken");
-    window.location.reload();
+    window.location="/";
   };
   render() {
     const token = localStorage.getItem("jwtToken");
@@ -64,6 +65,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           {token ? <Route path="/profile" component={Profile} /> : null}
+          <Route path="/profile/updateProfile" component={UpdateProfile} />
         </div>
       </Router>
     );
