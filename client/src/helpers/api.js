@@ -9,10 +9,10 @@ export const getUsers = () => {
 };
 
 export const updateUserProfile = async (user_id, content) => {
-         return await instance
-           .put(`/api/users/${user_id}`, content)
-           .then(res => res.data);
-       };
+  return await instance
+    .put(`/api/users/${user_id}`, content)
+    .then(res => res.data);
+};
 
 export const postUser = (email, password, name, city, postcode) => {
   return instance.post("/api/users", { email, password, name, city, postcode });
@@ -20,6 +20,9 @@ export const postUser = (email, password, name, city, postcode) => {
 
 export const getDeliveries = () => {
   return instance.get("/api/deliveries").then(res => res);
+};
+export const getDeliveriesAdmin = () => {
+  return instance.get("/api/admin/deliveries");
 };
 export const getUserProfile = () => {
   return instance.get("/user/profile");
