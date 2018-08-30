@@ -37,6 +37,10 @@ router.get("/deliveries", async (req, res) => {
   const data = await db.getDeliveries();
   res.send(data);
 });
+router.get("/admin/deliveries", async (req, res) => {
+  const data = await db.getDeliveries();
+  res.send(data);
+});
 
 router.get("/drivers", async (req, res) => {
   const data = await db.getDrivers();
@@ -56,7 +60,7 @@ router.get("/contacts", (req, res) => {
 router.put("/users/:user_id", async (req, res) => {
   const { body } = req;
   try {
-    await db.editUserProfile(req.params.user_id,body);
+    await db.editUserProfile(req.params.user_id, body);
     res.status(200).json({ success: true, data: {} });
   } catch (error) {
     res.status(502).json({ success: false });
