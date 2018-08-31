@@ -41,10 +41,24 @@ router.get("/admin/deliveries", async (req, res) => {
   const data = await db.getDeliveries();
   res.send(data);
 });
+router.get("/deliveries/:deliveryId", async (req, res) => {
+  const delivery_id = req.params.deliveryId;
+  const data = await db.filterDeliveryById(delivery_id);
+  if (data) {
+    res.send(data);
+  } else {
+    res.send(404);
+  }
+});
 
 router.get("/drivers", async (req, res) => {
   const data = await db.getDrivers();
   res.send(data);
+});
+router.get("/stores_contacts", (req, res) => {
+  db.getStoresContacts().then(data => {
+    res.send(data);
+  });
 });
 
 router.get("/items", (req, res) => {
