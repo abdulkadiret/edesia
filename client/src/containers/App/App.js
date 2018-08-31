@@ -7,6 +7,7 @@ import UpdateProfile from "../Profile/UpdateProfile";
 import Profile from "../Profile/Profile";
 import Login from "../../components/Login/Login";
 import Register from "../../components/Register/Register";
+import DeliveryDetails from "../DeliveryDetails/DeliveryDetails";
 import axios from "axios";
 import Dashboard from "../../components/Dashboard/Dashboard";
 
@@ -65,8 +66,11 @@ class App extends Component {
           </ul>
           <hr />
           <Route exact path="/" component={Home} />
-          <Route path="/deliveries" component={Deliveries} />
+
+          <Route exact path="/deliveries" component={Deliveries} />
+          <Route path="/deliveries/:deliveryId" component={DeliveryDetails} />
           <Route path="/drivers" component={UpdateProfile} />
+
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/admin" component={Dashboard} />
