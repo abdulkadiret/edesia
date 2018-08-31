@@ -9,10 +9,10 @@ class DeliveriesAdmin extends Component {
     };
   }
   componentDidMount = async () => {
-    const data = await getDeliveriesAdmin;
+    const data = await getDeliveriesAdmin();
     console.log(data);
     this.setState({
-      deliveries: data
+      deliveries: data.data
     });
   };
   render() {
@@ -25,6 +25,7 @@ class DeliveriesAdmin extends Component {
               <th>Delivery Id </th>
               <th>address </th>
               <th> Deadline </th>
+              <th> Status</th>
               <th>driver_id </th>
             </tr>
           </thead>
@@ -32,11 +33,9 @@ class DeliveriesAdmin extends Component {
             <tbody>
               <tr>
                 <td>{delivery.delivery_id} </td>
-
                 <td>{delivery.address} </td>
-
                 <td>{delivery.deadline} </td>
-
+                <td>{delivery.status} </td>
                 <td>{delivery.driver_id} </td>
               </tr>
             </tbody>
