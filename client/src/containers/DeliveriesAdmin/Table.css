@@ -3,6 +3,9 @@ table {
   border-collapse: collapse;
   width: 100%;
 }
+h2 {
+  margin-bottom: 50px;
+}
 
 th,
 td {
@@ -13,4 +16,7 @@ td {
 
 tr:hover {
   background-color: #a8cbeb;
+}
+.table-row:hover {
+  cursor: pointer;
 }
