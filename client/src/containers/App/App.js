@@ -21,7 +21,7 @@ class App extends Component {
   };
   logout = () => {
     localStorage.removeItem("jwtToken");
-    window.location="/";
+    window.location = "/";
   };
   render() {
     const token = localStorage.getItem("jwtToken");
@@ -61,7 +61,8 @@ class App extends Component {
           </ul>
           <hr />
           <Route exact path="/" component={Home} />
-          <Route path="/deliveries" component={Deliveries} />
+          <Route exact path="/deliveries" component={Deliveries} />
+          <Route exact path="/deliveries/:delivery_id" component={Deliveries} />
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           {token ? <Route path="/profile" component={Profile} /> : null}
