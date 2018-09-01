@@ -24,6 +24,9 @@ exports.up = async (knex, Promise) => {
     table.increments("delivery_id");
     table.string("address");
     table.integer("driver_id");
+    table.string("store_name");
+    table.datetime("deadline");
+    table.enu("status", ["Availabile", "Pending", "Delivered", "Cancelled"])
     table
       .foreign("driver_id")
       .references("driver_id")
