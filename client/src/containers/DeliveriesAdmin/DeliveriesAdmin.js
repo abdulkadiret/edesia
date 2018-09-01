@@ -19,24 +19,17 @@ class DeliveriesAdmin extends Component {
   onClick = () => {
     console.log("onClick working");
   };
-  sortByDate = () => {
+  render() {
     const sortedDeliveries = this.state.deliveries.sort((a, b) => {
       return new Date(b.deadline).getTime() - new Date(a.deadline).getTime();
     });
-
-    this.setState({
-      deliveries: sortedDeliveries
-    });
-    console.log(sortedDeliveries);
-  };
-  render() {
     return (
       <div className="App">
         <h2> All Deliveries</h2>
         <h3>
           <Link to="/admin/deliveries/add"> Add Delivery </Link>
         </h3>
-        <button onClick={this.sortByDate}> Sort</button>
+
         <table className="results">
           <thead>
             <tr>
@@ -47,7 +40,7 @@ class DeliveriesAdmin extends Component {
               <th>driver_id </th>
             </tr>
           </thead>
-          {this.state.deliveries.map(delivery => (
+          {sortedDeliveries.map(delivery => (
             <tbody>
               <tr className="delivery-row" onClick={this.onClick}>
                 <td>{delivery.delivery_id} </td>
