@@ -50,13 +50,13 @@ exports.seed = async (knex, Promise) => {
       return knex("deliveries").insert([
         {
           address: "Govan",
-          deadline: "2018-09-24",
+          deadline: "2018-09-24T03:24:00",
           status: "Delivered",
           driver_id: 14
         },
         {
           address: "Parkhead",
-          deadline: "2018-12-10",
+          deadline: "2018-12-10T03:24:00",
           status: "Pending",
           driver_id: 22
         }
