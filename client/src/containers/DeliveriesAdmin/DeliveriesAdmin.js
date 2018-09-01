@@ -40,8 +40,8 @@ class DeliveriesAdmin extends Component {
               <th>driver_id </th>
             </tr>
           </thead>
-          {sortedDeliveries.map(delivery => (
-            <tbody>
+          <tbody>
+            {sortedDeliveries.map(delivery => (
               <tr className="delivery-row" onClick={this.onClick}>
                 <td>{delivery.delivery_id} </td>
                 <td>{delivery.address} </td>
@@ -49,8 +49,8 @@ class DeliveriesAdmin extends Component {
                 <td>{delivery.status} </td>
                 <td>{delivery.driver_id} </td>
               </tr>
-            </tbody>
-          ))}
+            ))}
+          </tbody>
         </table>
       </div>
     );
