@@ -1,5 +1,6 @@
-const API_URL = process.env.REACT_APP_API_URI || "/";
 const axios = require("axios");
+const API_URL = process.env.REACT_APP_API_URI || "/";
+
 const instance = axios.create({
   baseURL: API_URL
 });
@@ -21,7 +22,12 @@ export const postUser = (email, password, name, city, postcode) => {
 export const getDeliveries = async () => {
   return await instance.get("/api/deliveries");
 };
-
+export const getDeliveriesAdmin = () => {
+  return instance.get("/api/admin/deliveries");
+};
+export const getDeliveryById = delivery_id => {
+  return instance.get(`/api/deliveries/${delivery_id}`);
+};
 export const getUserProfile = () => {
   return instance.get("/user/profile");
 };

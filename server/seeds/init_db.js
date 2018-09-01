@@ -48,9 +48,24 @@ exports.seed = async (knex, Promise) => {
     .then(function() {
       // Inserts seed entries
       return knex("deliveries").insert([
+<<<<<<< HEAD
         { address: "Govan", store_name: "Tesco", deadline: new Date("2018-09-01T03:30:00"), status:"Availabile" },
         { address: "Parkhead", store_name: "Aldi", deadline: new Date("2018-08-30T03:30:00"), status: "Delivered" },
         { address: "Parkhead", store_name: "Lidl", deadline: new Date("2018-08-30T03:30:00"), status: "Pending" }
+=======
+        {
+          address: "Govan",
+          deadline: "2018-09-24T03:24:00",
+          status: "Delivered",
+          driver_id: 14
+        },
+        {
+          address: "Parkhead",
+          deadline: "2018-10-12T03:24:00",
+          status: "Pending",
+          driver_id: 22
+        }
+>>>>>>> 15e7f595cb2f324833478a26251c25fb3c20fc7b
       ]);
     });
   await knex("status")
@@ -68,6 +83,7 @@ exports.seed = async (knex, Promise) => {
         { quantity: 300, type: "vegitables" }
       ]);
     });
+
   return knex("contacts")
     .del()
     .then(function() {

@@ -24,6 +24,12 @@ const getUserProfile = userId => {
 const getDeliveries = () => {
   return knex.select().from("deliveries");
 };
+const filterDeliveryById = deliveryId => {
+  return knex("deliveries")
+    .select("delivery_id", "address", "deadline", "driver_id")
+    .where({ delivery_id: deliveryId })
+    .first();
+};
 const getDrivers = () => {
   return knex.select().from("drivers");
 };
@@ -31,12 +37,15 @@ const getDrivers = () => {
 const getStores = () => {
   return knex.select().from("stores");
 };
+const getStoresContacts = () => {
+  return knex.select().from("stores_contacts");
+};
 
 const getContacts = () => {
   return knex.select().from("contacts");
 };
 
-const editUserProfile = (user_id,data) => {
+const editUserProfile = (user_id, data) => {
   return knex
     .table("users")
     .where("user_id", "=", user_id)
@@ -52,9 +61,11 @@ module.exports = {
   getDeliveries,
   getDrivers,
   getStores,
+  getStoresContacts,
   getContacts,
   editUserProfile,
   getSingleUser,
   getUserProfile,
-  saveUser
+  saveUser,
+  filterDeliveryById
 };
