@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import DeliveryDetails from "../DeliveryDetails/DeliveryDetails";
 
 class Deliveries extends Component {
   render() {

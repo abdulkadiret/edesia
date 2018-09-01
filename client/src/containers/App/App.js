@@ -10,6 +10,7 @@ import Register from "../../components/Register/Register";
 import DeliveryDetails from "../DeliveryDetails/DeliveryDetails";
 import axios from "axios";
 import Dashboard from "../../components/Dashboard/Dashboard";
+import DeliveriesAdmin from "../DeliveriesAdmin/DeliveriesAdmin";
 
 class App extends Component {
   state = {
@@ -74,7 +75,7 @@ class App extends Component {
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/admin" component={Dashboard} />
-          <Route path="/admin/deliveries" component={Deliveries} />
+          <Route path="/admin/deliveries" component={DeliveriesAdmin} />
           <Route path="/admin/drivers" component={UpdateProfile} />
 
           {token ? <Route path="/profile" component={Profile} /> : null}
