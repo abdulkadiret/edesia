@@ -69,16 +69,13 @@ class App extends Component {
           </ul>
           <hr />
           <Route exact path="/" component={Home} />
-
           <Route exact path="/deliveries" component={Deliveries} />
           <Route path="/deliveries/:deliveryId" component={DeliveryDetails} />
-          <Route path="/drivers" component={UpdateProfile} />
 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route path="/admin" component={Dashboard} />
           <Route path="/admin/deliveries" component={DeliveriesAdmin} />
-          <Route path="/admin/drivers" component={UpdateProfile} />
 
           {token ? <Route path="/profile" component={Profile} /> : null}
           <Route path="/profile/updateProfile" component={UpdateProfile} />
