@@ -1,4 +1,4 @@
-.deliveryCard {
+.delivery-card {
   border: solid 2px;
   height: 70px;
   display: flex;
@@ -11,7 +11,7 @@
   padding: 0;
 }
 @media (max-width: 592px){
-  .deliveryCard {
+  .delivery-card {
  margin-bottom: 10px
 }
 }
