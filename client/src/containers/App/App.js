@@ -12,6 +12,7 @@ import axios from "axios";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import DeliveriesAdmin from "../DeliveriesAdmin/DeliveriesAdmin";
 import HighlightedLink from "../../components/HighlightedLink/HighlightedLink";
+import Logo from "../../components/Logo"
 
 class App extends Component {
   state = {
@@ -35,6 +36,7 @@ class App extends Component {
           <HighlightedLink text="Register as driver" path="/register" />
 
           <header className="App-header">
+            <Logo/>
           <ul>
             <li>
               <Link to="/"> Home </Link>
