@@ -4,10 +4,15 @@
 
 .App-header {
   background-color: rgb(71, 122, 87);
-  height: 150px;
+  height: 200px;
   padding: 5px;
   color: white;
 }
+
+ul {
+  list-style: none;
+}
+
 li {
   font-size: 20px;
 }
@@ -18,6 +23,10 @@ li {
 
 .App-intro {
   font-size: large;
+}
+
+a {
+  color: white
 }
 
 @keyframes App-logo-spin {

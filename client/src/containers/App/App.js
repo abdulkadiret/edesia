@@ -33,6 +33,8 @@ class App extends Component {
       <Router>
         <div className="app">
           <HighlightedLink text="Register as driver" path="/register" />
+
+          <header className="App-header">
           <ul>
             <li>
               <Link to="/"> Home </Link>
@@ -67,6 +69,8 @@ class App extends Component {
               </li>
             ) : null}
           </ul>
+          </header>
+
           <hr />
           <Route exact path="/" component={Home} />
           <Route exact path="/deliveries" component={Deliveries} />
