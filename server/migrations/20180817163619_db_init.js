@@ -23,8 +23,6 @@ exports.up = async (knex, Promise) => {
   await knex.schema.createTable("deliveries", table => {
     table.increments("delivery_id");
     table.string("address");
-    table.date("deadline");
-    table.string("status");
     table.integer("driver_id");
     table.string("store_name");
     table.datetime("deadline");
