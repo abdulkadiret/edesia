@@ -12,7 +12,7 @@ import axios from "axios";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import DeliveriesAdmin from "../DeliveriesAdmin/DeliveriesAdmin";
 import HighlightedLink from "../../components/HighlightedLink/HighlightedLink";
-import Logo from "../../components/Logo"
+import Logo from "../../components/Logo";
 
 class App extends Component {
   state = {
@@ -36,41 +36,39 @@ class App extends Component {
           <HighlightedLink text="Register as driver" path="/register" />
 
           <header className="App-header">
-            <Logo/>
-          <ul>
-            <li>
-              <Link to="/"> Home </Link>
-            </li>
-            <li>
-              <Link to="/admin"> Edesia admin </Link>
-            </li>
+            <Logo />
+            <ul>
+              <li>
+                <Link to="/"> Home </Link>
+              </li>
+              <li>
+                <Link to="/admin"> Edesia admin </Link>
+              </li>
 
-            <li>
-              <Link to="/deliveries"> Deliveries </Link>
-            </li>
-            {!token ? (
               <li>
-                <Link to="/login">Login</Link>
+                <Link to="/deliveries"> Deliveries </Link>
               </li>
-            ) : null}
-            {!token ? (
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
-            ) : null}
-            {token ? (
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-            ) : null}
-            {token ? (
-              <li>
-                <button className="btn btn-primary" onClick={this.logout}>
-                  Logout
-                </button>
-              </li>
-            ) : null}
-          </ul>
+              {!token ? (
+                <li>
+                  <Link to="/login">Login</Link>
+                </li>
+              ) : null}
+              {!token ? (
+                <li>
+                  <Link to="/register">Register</Link>
+                </li>
+              ) : null}
+              {token ? (
+                <li>
+                  <Link to="/profile">Profile</Link>
+                </li>
+              ) : null}
+              {token ? (
+                <Link to="/" onClick={this.logout}>
+                  Logout{" "}
+                </Link>
+              ) : null}
+            </ul>
           </header>
 
           <hr />
