@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./UpdateProfile.css";
-import { updateUserProfile } from "../../helpers/api";
+import { updateUserProfile, getUserProfile } from "../../helpers/api";
 
 class UpdateProfile extends Component {
   constructor(props) {
@@ -24,6 +24,16 @@ class UpdateProfile extends Component {
     const user = JSON.parse(localStorage.getItem("user"));
     const user_id = user.user_id;
     this.setState({ user_id: user_id });
+
+    getUserProfile(user_id).then(response => {
+      this.setState({
+        user_id: response.data.user_id,
+        name: response.data.name,
+        city: response.data.city,
+        postcode: response.data.postcode
+      });
+    }
+    );
   }
 
   handleSave = event => {
@@ -40,25 +50,19 @@ class UpdateProfile extends Component {
   };
 
   render() {
-    return (
-      <div>
+    return <div>
         <div className="col">
           <h2>Edit Profile</h2>
           <form className="form" name="form" onSubmit={this.handleSave}>
             <div className="form-group">
               <label> Name:</label>
-              <input type="name" name="name" onChange={this.handleChange} />
+            <input type="name" name="name" value={this.state.name} onChange={this.handleChange} />
             </div>
 
             <div className="form-group">
               <label>
                 City:
-                <select
-                  name="city"
-                  type="city"
-                  value={this.state.value}
-                  onChange={this.handleChange}
-                >
+                <select name="city" type="city" value={this.state.city} onChange={this.handleChange}>
                   <option className="form-option" value="Glasgow">
                     Glasgow
                   </option>
@@ -71,26 +75,17 @@ class UpdateProfile extends Component {
 
             <div className="form-group">
               <label>Postcode:</label>
-              <input
-                type="postcode"
-                name="postcode"
-                onChange={this.handleChange}
-              />
+            <input type="postcode" name="postcode" value={this.state.postcode} onChange={this.handleChange} />
             </div>
 
             <div className="form-group">
               <button className="btn submit">Update Profile </button>
             </div>
           </form>
-          {this.state.status === 200
-            ? "Your information has been updated successfully"
-            : null}
-          {this.state.status === 502
-            ? "An error occurred while updating your profile. Please try again"
-            : null}
+          {this.state.status === 200 ? "Your information has been updated successfully" : null}
+          {this.state.status === 502 ? "An error occurred while updating your profile. Please try again" : null}
         </div>
-      </div>
-    );
+      </div>;
   }
 }
 
