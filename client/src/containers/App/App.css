@@ -4,16 +4,16 @@
 
 .App-header {
   background-color: rgb(71, 122, 87);
-  height: 210px;
+  height: 180px;
   padding: 5px;
   color: white;
 }
 
-ul {
+.App-header ul {
   list-style: none;
 }
 
-li {
+App-header li {
   font-size: 20px;
 }
 
@@ -21,7 +21,7 @@ li {
   font-size: large;
 }
 
-a {
+.App-header a {
   color: white
 }
 
