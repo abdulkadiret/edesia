@@ -14,6 +14,8 @@ import DeliveriesAdmin from "../DeliveriesAdmin/DeliveriesAdmin";
 import HighlightedLink from "../../components/HighlightedLink/HighlightedLink";
 import Logo from "../../components/Logo";
 
+import AddDeliveries from "../DeliveriesAdmin/AddDeliveries";
+
 class App extends Component {
   state = {
     loggedIn: false
@@ -78,8 +80,10 @@ class App extends Component {
 
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
-          <Route path="/admin" component={Dashboard} />
-          <Route path="/admin/deliveries" component={DeliveriesAdmin} />
+          <Route exact path="/admin" component={Dashboard} />
+          <Route exact path="/admin/deliveries/add" component={AddDeliveries} />
+          <Route exact path="/admin/deliveries" component={DeliveriesAdmin} />
+          <Route path="/admin/drivers" component={UpdateProfile} />
 
           {token ? <Route path="/profile" component={Profile} /> : null}
           <Route path="/profile/updateProfile" component={UpdateProfile} />

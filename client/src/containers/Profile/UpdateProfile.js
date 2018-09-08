@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./UpdateProfile.css";
 import { updateUserProfile, getUserProfile } from "../../helpers/api";
 
 class UpdateProfile extends Component {
@@ -82,15 +81,15 @@ class UpdateProfile extends Component {
   };
 
   render() {
-    console.log("this is statusUdata", this.state.successUpdate);
     return (
       <div>
-        <div className="col">
+        <div className="col-xs-12 col-md-2">
           <h2>Edit Profile</h2>
-          <form className="form" name="form" onSubmit={this.handleSave}>
+          <form name="form" onSubmit={this.handleSave}>
             <div className="form-group">
               <label> Name:</label>
               <input
+                className="form-control"
                 type="name"
                 name="name"
                 value={this.state.name}
@@ -102,17 +101,14 @@ class UpdateProfile extends Component {
               <label>
                 City:
                 <select
+                  className="form-control"
                   name="city"
                   type="city"
                   value={this.state.city}
                   onChange={this.handleChange}
                 >
-                  <option className="form-option" value="Glasgow">
-                    Glasgow
-                  </option>
-                  <option className="form-option" value="Edinburgh">
-                    Edinburgh
-                  </option>
+                  <option value="Glasgow">Glasgow</option>
+                  <option value="Edinburgh">Edinburgh</option>
                 </select>
               </label>
             </div>
@@ -122,6 +118,7 @@ class UpdateProfile extends Component {
               <input
                 type="postcode"
                 name="postcode"
+                className="form-control"
                 value={this.state.postcode}
                 onChange={this.handleChange}
               />
@@ -132,6 +129,7 @@ class UpdateProfile extends Component {
               <input
                 required
                 type="password"
+                className="form-control"
                 name="password"
                 value={this.state.password}
                 onChange={this.handleChange}
@@ -142,6 +140,7 @@ class UpdateProfile extends Component {
               <label> confirmPassword:</label>
               <input
                 required
+                className="form-control"
                 type="password"
                 name="confirmPassword"
                 value={this.state.confirmPassword}
@@ -150,7 +149,7 @@ class UpdateProfile extends Component {
             </div>
 
             <div className="form-group">
-              <button className="btn submit">Update Profile </button>
+              <button className="btn btn-primary">Update Profile </button>
             </div>
           </form>
           {this.renderResult()}
