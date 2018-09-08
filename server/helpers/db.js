@@ -17,7 +17,7 @@ const getSingleUser = (email, password) => {
 };
 const getUserProfile = userId => {
   return knex("users")
-    .select("user_id", "email", "name")
+    .select("user_id", "email", "name", "postcode", "city")
     .where({ user_id: userId })
     .first();
 };
@@ -59,7 +59,8 @@ const editUserProfile = (user_id, data) => {
       name: data.name,
       email: data.email,
       city: data.city,
-      postcode: data.postcode
+      postcode: data.postcode,
+      password:data.password,
     });
 };
 module.exports = {
