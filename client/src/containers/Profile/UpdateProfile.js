@@ -11,7 +11,8 @@ class UpdateProfile extends Component {
       city: "Glasgow",
       postcode: "",
       password: "",
-      successUpdate: null
+      successUpdate: null,
+      confirmPassword: ""
     };
   }
 
@@ -45,11 +46,21 @@ class UpdateProfile extends Component {
       postcode: this.state.postcode,
       password: this.state.password
     };
-    updateUserProfile(this.state.user_id, content)
-      .then(response => this.setState({ successUpdate: true }))
-      .catch(err => {
-        this.setState({ successUpdate: false });
-      });
+
+    if (
+      this.state.password &&
+      this.state.password === this.state.confirmPassword
+    ) {
+      updateUserProfile(this.state.user_id, content)
+        .then(response => this.setState({ successUpdate: true }))
+        .catch(err => {
+          this.setState({ successUpdate: false });
+        });
+    } else {
+      this.setState({ successUpdate: false });
+      // setTimeout(() => this.setState({ successUpdate: null }), 2000);
+    }
+    setTimeout(() => this.setState({ successUpdate: null }), 2000);
   };
 
   renderResult = () => {
@@ -119,9 +130,21 @@ class UpdateProfile extends Component {
             <div className="form-group">
               <label> Password:</label>
               <input
+                required
                 type="password"
                 name="password"
                 value={this.state.password}
+                onChange={this.handleChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label> confirmPassword:</label>
+              <input
+                required
+                type="password"
+                name="confirmPassword"
+                value={this.state.confirmPassword}
                 onChange={this.handleChange}
               />
             </div>
