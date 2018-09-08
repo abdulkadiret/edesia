@@ -17,7 +17,7 @@ const getSingleUser = (email, password) => {
 };
 const getUserProfile = userId => {
   return knex("users")
-    .select("user_id", "email", "name", "postcode", "city", "password")
+    .select("user_id", "email", "name", "postcode", "city")
     .where({ user_id: userId })
     .first();
 };
