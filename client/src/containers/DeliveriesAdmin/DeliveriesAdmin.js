@@ -38,7 +38,16 @@ class DeliveriesAdmin extends Component {
         })
       });
     }
-    console.log(this.filteredDeliveries);
+  };
+  onChange = e => {
+    const searchValue = e.target.value;
+    this.setState({
+      filteredDeliveries: this.state.deliveries.filter(delivery => {
+        return delivery.address
+          .toLowerCase()
+          .includes(searchValue.toLowerCase());
+      })
+    });
   };
   render() {
     const sortedDeliveries = this.state.filteredDeliveries.sort((a, b) => {
@@ -66,6 +75,9 @@ class DeliveriesAdmin extends Component {
             </select>
           </label>
         </div>
+        <br />
+        <label>Search: </label>
+        <input onChange={this.onChange} placeholder="search by area" />
         <table className="results">
           <thead>
             <tr>
