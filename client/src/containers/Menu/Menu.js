@@ -29,40 +29,85 @@ class Menu extends Component {
           onClick={this.goToDriverRegistration}
         />
 
-        <ul>
-          <li>
-            <Link to="/"> Home </Link>
-          </li>
-          <li>
-            <Link to="/admin"> Edesia admin </Link>
-          </li>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon" />
+          </button>
 
-          <li>
-            <Link to="/deliveries"> Deliveries </Link>
-          </li>
-          {!token ? (
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-          ) : null}
-          {!token ? (
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-          ) : null}
-          {token ? (
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-          ) : null}
-          {token ? (
-            <li>
-              <button className="btn btn-primary" onClick={this.logout}>
-                Logout
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li className="nav-item active">
+                <Link to="/" class="nav-link">
+                  Home
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to="/admin" class="nav-link">
+                  Edesia admin
+                </Link>
+              </li>
+
+              <li className="nav-item">
+                <Link to="/deliveries" class="nav-link">
+                  Deliveries
+                </Link>
+              </li>
+              {!token ? (
+                <li className="nav-item">
+                  <Link to="/login" class="nav-link">
+                    Login
+                  </Link>
+                </li>
+              ) : null}
+              {!token ? (
+                <li className="nav-item">
+                  <Link to="/register" class="nav-link">
+                    Register
+                  </Link>
+                </li>
+              ) : null}
+              {token ? (
+                <li className="nav-item">
+                  <Link to="/profile" class="nav-link">
+                    Profile
+                  </Link>
+                </li>
+              ) : null}
+              {token ? (
+                <li className="nav-item">
+                  <button
+                    className=" nav-link btn btn-sm btn-outline-secondary"
+                    onClick={this.logout}
+                  >
+                    Logout
+                  </button>
+                </li>
+              ) : null}
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input
+                className="form-control mr-sm-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button
+                className="btn btn-outline-success my-2 my-sm-0"
+                type="submit"
+              >
+                Search
               </button>
-            </li>
-          ) : null}
-        </ul>
+            </form>
+          </div>
+        </nav>
       </div>
     );
   }
