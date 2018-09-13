@@ -24,10 +24,12 @@ class Menu extends Component {
     const token = localStorage.getItem("jwtToken");
     return (
       <div>
-        <HighlightedLink
-          text="Register as driver"
-          onClick={this.goToDriverRegistration}
-        />
+        {!token ? (
+          <HighlightedLink
+            text="Register as driver"
+            onClick={this.goToDriverRegistration}
+          />
+        ) : null}
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <button
@@ -44,47 +46,47 @@ class Menu extends Component {
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-              <li className="nav-item active">
+              <li className="navbar-brand active">
                 <Link to="/" class="nav-link">
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link to="/admin" class="nav-link">
+              <li className="navbar-brand">
+                <Link to="/admin" class="nav-link ">
                   Edesia admin
                 </Link>
               </li>
 
-              <li className="nav-item">
+              <li className="navbar-brand">
                 <Link to="/deliveries" class="nav-link">
                   Deliveries
                 </Link>
               </li>
               {!token ? (
-                <li className="nav-item">
+                <li className="navbar-brand">
                   <Link to="/login" class="nav-link">
                     Login
                   </Link>
                 </li>
               ) : null}
               {!token ? (
-                <li className="nav-item">
+                <li className="navbar-brand">
                   <Link to="/register" class="nav-link">
                     Register
                   </Link>
                 </li>
               ) : null}
               {token ? (
-                <li className="nav-item">
+                <li className="navbar-brand">
                   <Link to="/profile" class="nav-link">
                     Profile
                   </Link>
                 </li>
               ) : null}
               {token ? (
-                <li className="nav-item">
+                <li className="navbar-brand">
                   <button
-                    className=" nav-link btn btn-sm btn-outline-secondary"
+                    className=" nav-link btn btn-outline-primary"
                     onClick={this.logout}
                   >
                     Logout
