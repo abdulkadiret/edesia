@@ -52,7 +52,12 @@ router.get("/admin/deliveries", async (req, res) => {
 
 router.post("/admin/deliveries", (req, res) => {
   const body = req.body;
-  db.addDeliveries(body.address, body.deadline, body.status).then(() => {
+  db.addDeliveries(
+    body.address,
+    body.deadline,
+    body.status,
+    body.store_name
+  ).then(() => {
     res.send();
   });
 });
