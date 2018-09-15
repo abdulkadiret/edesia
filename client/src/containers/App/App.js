@@ -13,6 +13,7 @@ import Dashboard from "../../components/Dashboard/Dashboard";
 import DeliveriesAdmin from "../DeliveriesAdmin/DeliveriesAdmin";
 import HighlightedLink from "../../components/HighlightedLink/HighlightedLink";
 import Logo from "../../components/Logo";
+import UpdateDelivery from "../DeliveriesAdmin/UpdateDelivery";
 
 import AddDeliveries from "../DeliveriesAdmin/AddDeliveries";
 
@@ -84,6 +85,11 @@ class App extends Component {
           <Route exact path="/admin/deliveries/add" component={AddDeliveries} />
           <Route exact path="/admin/deliveries" component={DeliveriesAdmin} />
           <Route path="/admin/drivers" component={UpdateProfile} />
+          <Route
+            exact
+            path="/admin/deliveries/:deliveryId"
+            component={UpdateDelivery}
+          />
 
           {token ? <Route path="/profile" component={Profile} /> : null}
           <Route path="/profile/updateProfile" component={UpdateProfile} />
