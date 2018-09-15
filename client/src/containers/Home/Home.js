@@ -38,7 +38,7 @@ class Home extends Component {
                     <Fragment>
                       <DeliveryCard
                         storeName={delivery.store_name}
-                        id={delivery.delivery_id}
+                        deliveryId={delivery.delivery_id}
                         address={delivery.address}
                       />
                     </Fragment>
