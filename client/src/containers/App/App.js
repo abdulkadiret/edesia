@@ -16,6 +16,7 @@ import Logo from "../../components/Logo";
 import UpdateDelivery from "../DeliveriesAdmin/UpdateDelivery";
 
 import AddDeliveries from "../DeliveriesAdmin/AddDeliveries";
+import DeleteDelivery from "../DeliveriesAdmin/DeleteDelivery";
 
 class App extends Component {
   state = {
@@ -87,8 +88,13 @@ class App extends Component {
           <Route path="/admin/drivers" component={UpdateProfile} />
           <Route
             exact
-            path="/admin/deliveries/:deliveryId"
+            path="/admin/deliveries/:deliveryId(\d+)"
             component={UpdateDelivery}
+          />
+          <Route
+            exact
+            path="/admin/deliveries/:deliveryId(\d+)"
+            component={DeleteDelivery}
           />
 
           {token ? <Route path="/profile" component={Profile} /> : null}
