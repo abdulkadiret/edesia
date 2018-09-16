@@ -24,9 +24,9 @@ const getUserProfile = userId => {
 const getDeliveries = () => {
   return knex.select().from("deliveries");
 };
-const addDeliveries = (address, deadline, status, driver_id) => {
+const addDeliveries = (address, deadline, status, store_name) => {
   return knex("deliveries")
-    .insert({ address, deadline, status })
+    .insert({ address, deadline, status, store_name })
     .returning("*");
 };
 
@@ -35,9 +35,6 @@ const filterDeliveryById = deliveryId => {
     .select()
     .where({ delivery_id: deliveryId })
     .first();
-};
-const getDrivers = () => {
-  return knex.select().from("drivers");
 };
 
 const getStores = () => {
@@ -60,7 +57,15 @@ const editUserProfile = (user_id, data) => {
       email: data.email,
       city: data.city,
       postcode: data.postcode,
-      password:data.password,
+      password: data.password
+    });
+};
+const assignDriverIdToDelivery = (delivery_id, user_id) => {
+  return knex
+    .table("deliveries")
+    .where("delivery_id", "=", delivery_id)
+    .update({
+      driver_id: user_id
     });
 };
 
@@ -85,7 +90,7 @@ const deleteDelivery = async delivery_id => {
 module.exports = {
   getUsers,
   getDeliveries,
-  getDrivers,
+  assignDriverIdToDelivery,
   getStores,
   getStoresContacts,
   getContacts,

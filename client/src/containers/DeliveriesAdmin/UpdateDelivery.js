@@ -41,14 +41,18 @@ class UpdateDelivery extends Component {
       status: this.state.status
     };
 
-    updateDeliveryDetail(this.state.delivery_id, content).then(response =>
-      this.setState({
-        address: response.address,
-        store_name: response.store_name,
-        deadline: response.deadline,
-        status: response.status
-      })
-    );
+    const updateConfirmed = window.confirm;
+    if (updateConfirmed) {
+      updateDeliveryDetail(this.state.delivery_id, content).then(response =>
+        this.setState({
+          address: response.address,
+          store_name: response.store_name,
+          deadline: response.deadline,
+          status: response.status
+        })
+      );
+    }
+    this.props.history.push("/admin/deliveries");
   };
 
   render() {
