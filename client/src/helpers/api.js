@@ -21,6 +21,10 @@ export const updateDeliveryDetail = async (delivery_id, content) => {
     .then(res => res.data);
 };
 
+export const deleteDelivery = async delivery_id => {
+  return await instance.delete(`/api/deliveries/${delivery_id}`);
+};
+
 export const postUser = (email, password, name, city, postcode) => {
   return instance.post("/api/users", { email, password, name, city, postcode });
 };
