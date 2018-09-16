@@ -76,6 +76,12 @@ const editDeliveryDetails = (delivery_id, data) => {
     });
 };
 
+const deleteDelivery = async delivery_id => {
+  return await knex
+    .table("deliveries")
+    .where({ delivery_id }).del();
+};
+
 module.exports = {
   getUsers,
   getDeliveries,
@@ -89,5 +95,6 @@ module.exports = {
   getUserProfile,
   saveUser,
   filterDeliveryById,
-  addDeliveries
+  addDeliveries,
+  deleteDelivery
 };
