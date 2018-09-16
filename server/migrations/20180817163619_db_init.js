@@ -8,6 +8,10 @@ exports.up = async (knex, Promise) => {
     table.string("password").notNullable();
     table.enum("role", ["admin", "driver"]);
   });
+  await knex.schema.createTable("roles", table => {
+    table.increments("role_id");
+    table.string("role");
+  });
 
   await knex.schema.createTable("stores", table => {
     table.increments("store_id");
@@ -76,4 +80,5 @@ exports.down = async (knex, Promise) => {
   await knex.schema.dropTableIfExists("items");
   await knex.schema.dropTableIfExists("status");
   await knex.schema.dropTableIfExists("notifications");
+  await knex.schema.dropTableIfExists("roles");
 };
