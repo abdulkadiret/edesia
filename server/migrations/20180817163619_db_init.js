@@ -15,7 +15,6 @@ exports.up = async (knex, Promise) => {
   await knex.schema.createTable("roles", table => {
     table.string("role_name").primary();
   });
-
   await knex.schema.createTable("stores", table => {
     table.increments("store_id");
     table.string("area");
