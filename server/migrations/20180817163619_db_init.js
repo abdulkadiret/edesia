@@ -6,9 +6,15 @@ exports.up = async (knex, Promise) => {
     table.string("city").defaultTo("Glasgow");
     table.string("postcode").notNullable();
     table.string("password").notNullable();
-    table.enum("role", ["admin", "driver"]);
+    table.string("role");
+    table
+      .foreign("role")
+      .references("role_name")
+      .inTable("roles");
   });
-
+  await knex.schema.createTable("roles", table => {
+    table.string("role_name").primary();
+  });
   await knex.schema.createTable("stores", table => {
     table.increments("store_id");
     table.string("area");
@@ -76,4 +82,5 @@ exports.down = async (knex, Promise) => {
   await knex.schema.dropTableIfExists("items");
   await knex.schema.dropTableIfExists("status");
   await knex.schema.dropTableIfExists("notifications");
+  await knex.schema.dropTableIfExists("roles");
 };
