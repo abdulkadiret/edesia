@@ -22,7 +22,15 @@ exports.seed = async (knex, Promise) => {
         }
       ]);
     });
-  await knex("roles").insert([{ role: "user" }, { role: "admin" }]);
+  await knex("roles")
+    .del()
+    .then(function() {
+      // Inserts seed entries
+      return knex("roles").insert([
+        { role_name: "user" },
+        { role_name: "admin" }
+      ]);
+    });
 
   await knex("stores")
     .del()
