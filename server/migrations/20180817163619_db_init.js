@@ -1,4 +1,7 @@
 exports.up = async (knex, Promise) => {
+  await knex.schema.createTable("roles", table => {
+    table.string("role_name").primary();
+  });
   await knex.schema.createTable("users", table => {
     table.increments("user_id");
     table.string("name");
@@ -11,9 +14,6 @@ exports.up = async (knex, Promise) => {
       .foreign("role")
       .references("role_name")
       .inTable("roles");
-  });
-  await knex.schema.createTable("roles", table => {
-    table.string("role_name").primary();
   });
   await knex.schema.createTable("stores", table => {
     table.increments("store_id");
