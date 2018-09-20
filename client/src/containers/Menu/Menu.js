@@ -29,7 +29,6 @@ class Menu extends Component {
   render() {
     const token = localStorage.getItem("jwtToken");
     const userRole = this.state.role;
-    console.log(userRole);
     return (
       <div>
         {!token ? (
