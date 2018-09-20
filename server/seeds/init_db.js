@@ -1,5 +1,14 @@
 exports.seed = async (knex, Promise) => {
-  knex("users")
+  await knex("roles")
+    .del()
+    .then(function() {
+      // Inserts seed entries
+      return knex("roles").insert([
+        { role_name: "user" },
+        { role_name: "admin" }
+      ]);
+    });
+  await knex("users")
     .del()
     .then(function() {
       // Inserts seed entries
@@ -20,15 +29,6 @@ exports.seed = async (knex, Promise) => {
           postcode: "G1 5EF",
           role: "admin"
         }
-      ]);
-    });
-  await knex("roles")
-    .del()
-    .then(function() {
-      // Inserts seed entries
-      return knex("roles").insert([
-        { role_name: "user" },
-        { role_name: "admin" }
       ]);
     });
 
