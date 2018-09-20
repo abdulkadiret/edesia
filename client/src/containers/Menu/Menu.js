@@ -5,13 +5,19 @@ import { withRouter, Link } from "react-router-dom";
 
 class Menu extends Component {
   state = {
-    loggedIn: false
+    loggedIn: false,
+    role: ""
   };
-  componentDidMount = async () => {
+  componentDidMount = () => {
     const token = localStorage.getItem("jwtToken");
     if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     }
+    const user = JSON.parse(localStorage.getItem("user"));
+    const role = user.role;
+    this.setState({
+      role: role
+    });
   };
   logout = () => {
     localStorage.removeItem("jwtToken");
@@ -22,6 +28,8 @@ class Menu extends Component {
   };
   render() {
     const token = localStorage.getItem("jwtToken");
+    const userRole = this.state.role;
+    console.log(userRole);
     return (
       <div>
         {!token ? (
@@ -51,11 +59,13 @@ class Menu extends Component {
                   Home
                 </Link>
               </li>
-              <li className="navbar-brand">
-                <Link to="/admin" class="nav-link ">
-                  Edesia admin
-                </Link>
-              </li>
+              {token && userRole === "admin" ? (
+                <li className="navbar-brand">
+                  <Link to="/admin" class="nav-link ">
+                    Edesia admin
+                  </Link>
+                </li>
+              ) : null}
 
               <li className="navbar-brand">
                 <Link to="/deliveries" class="nav-link">
@@ -76,7 +86,7 @@ class Menu extends Component {
                   </Link>
                 </li>
               ) : null}
-              {token ? (
+              {token && userRole === "user" ? (
                 <li className="navbar-brand">
                   <Link to="/profile" class="nav-link">
                     Profile
