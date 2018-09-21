@@ -13,11 +13,15 @@ class Menu extends Component {
     if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     }
-    const user = JSON.parse(localStorage.getItem("user"));
-    const role = user.role;
-    this.setState({
-      role: role
-    });
+    const user = localStorage.getItem("user");
+    if (user) {
+      const role = JSON.parse(user).role;
+      this.setState({
+        role: role
+      });
+    } else {
+      this.setState({ role: "" });
+    }
   };
   logout = () => {
     localStorage.removeItem("jwtToken");
@@ -28,7 +32,7 @@ class Menu extends Component {
   };
   render() {
     const token = localStorage.getItem("jwtToken");
-    const userRole = this.state.role;
+    const { role: userRole } = this.state;
     return (
       <div>
         {!token ? (
