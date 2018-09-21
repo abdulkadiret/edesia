@@ -14,7 +14,15 @@ class Menu extends Component {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     }
     const user = localStorage.getItem("user");
-    if (user) {
+    const isJson = user => {
+      try {
+        JSON.parse(user);
+      } catch (e) {
+        return false;
+      }
+      return true;
+    };
+    if (user && isJson) {
       const role = JSON.parse(user).role;
       this.setState({
         role: role
