@@ -23,8 +23,11 @@ class Menu extends Component {
       } catch (e) {
         this.setState({ role: "" });
       }
+    } else {
+      this.setState({ role: "" });
     }
   };
+
   logout = () => {
     localStorage.removeItem("jwtToken");
     window.location = "/";
