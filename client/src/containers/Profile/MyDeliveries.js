@@ -11,7 +11,6 @@ class MyDeliveries extends Component {
       try {
         const driver_id = JSON.parse(user).user_id;
         const data = await getDeliveries();
-        console.log(data.data);
         const filiteredData = data.data.filter(delivery => {
           return delivery.driver_id === driver_id;
         });
