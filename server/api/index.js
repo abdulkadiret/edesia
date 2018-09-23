@@ -29,7 +29,7 @@ router.post("/users", (req, res) => {
     body.email,
     body.city,
     body.password,
-    body.postcode
+    body.postcode,
   ).then(() => {
     res.send();
   });
@@ -128,5 +128,12 @@ router.delete("/deliveries/:delivery_id", async (req, res) => {
     res.status(502).json({ success: false });
   }
 });
+
+router.get("/admin/users", (req, res) => {
+  db.getUsers().then(data => {
+    res.send(data);
+  });
+});
+
 
 module.exports = router;
