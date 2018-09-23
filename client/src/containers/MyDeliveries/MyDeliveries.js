@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getDeliveries } from "../../helpers/api";
+import { getMyDeliveries } from "../../helpers/api";
 import "../DeliveriesAdmin/Table.css";
 class MyDeliveries extends Component {
   state = {
@@ -10,17 +10,16 @@ class MyDeliveries extends Component {
     if (user) {
       try {
         const driver_id = JSON.parse(user).user_id;
-        const data = await getDeliveries();
-        const filiteredData = data.data.filter(delivery => {
-          return delivery.driver_id === driver_id;
-        });
+        const { data } = await getMyDeliveries(driver_id);
+        console.log(data);
         this.setState({
-          deliveries: filiteredData
+          deliveries: data
         });
       } catch (e) {
         this.setState({
           deliveries: []
         });
+        console.error(e);
       }
     }
   };

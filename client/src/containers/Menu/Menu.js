@@ -80,6 +80,13 @@ class Menu extends Component {
                   Deliveries
                 </Link>
               </li>
+              {token && userRole === "user" ? (
+                <li className="navbar-brand">
+                  <Link to="/mydeliveries" class="nav-link">
+                    My Deliveries
+                  </Link>
+                </li>
+              ) : null}
               {!token ? (
                 <li className="navbar-brand">
                   <Link to="/login" class="nav-link">

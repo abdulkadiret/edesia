@@ -71,6 +71,11 @@ router.get("/deliveries/:deliveryId", async (req, res) => {
   }
 });
 
+router.get("/deliveries/:driverId", async (req, res) => {
+  const driver_id = req.params.driverId;
+  const data = await db.filterDeliveriesByDriverId(driver_id);
+  res.send(data);
+});
 router.put(
   "/deliveries/:deliveryId/pickup",
   passport.authenticate("jwt", { session: false }),
