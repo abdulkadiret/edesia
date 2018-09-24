@@ -16,6 +16,7 @@ import UpdateDelivery from "../DeliveriesAdmin/UpdateDelivery";
 import DeleteDelivery from "../DeliveriesAdmin/DeleteDelivery";
 import AddDeliveries from "../DeliveriesAdmin/AddDeliveries";
 import Menu from "../Menu/Menu";
+import MyDeliveries from "../MyDeliveries/MyDeliveries";
 import UsersDetail from "../UsersInfo/UsersDetail";
 import EditUser from "../../components/EditUser/EditUser";
 
@@ -29,6 +30,7 @@ class App extends Component {
           <hr />
           <Route exact path="/" component={Home} />
           <Route exact path="/deliveries" component={Deliveries} />
+          <Route exact path="/mydeliveries" component={MyDeliveries} />
           <Route path="/deliveries/:deliveryId" component={DeliveryDetails} />
           <Route path="/admin/drivers" component={UsersDetail} />
           <Route path="/admin/users/edit/:userId" component={EditUser} />
