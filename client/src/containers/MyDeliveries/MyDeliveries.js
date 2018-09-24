@@ -25,28 +25,32 @@ class MyDeliveries extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="app">
         <h2> My Deliveries</h2>
-        <table className="results">
-          <thead>
-            <tr>
-              <th>Delivery Id </th>
-              <th>address </th>
-              <th> Deadline </th>
-              <th> Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.deliveries.map(delivery => (
-              <tr className="delivery-row">
-                <td>{delivery.delivery_id} </td>
-                <td>{delivery.address} </td>
-                <td>{delivery.deadline} </td>
-                <td>{delivery.status} </td>
+        <div className="table-responsive">
+          <table className="table table-bordered ">
+            <thead>
+              <tr className="table table-success">
+                <th scope="col">Delivery Id </th>
+                <th scope="col">Address </th>
+                <th scope="col"> Deadline </th>
+                <th scope="col"> status </th>
+                <th scope="col">driver Id </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="table-hover">
+              {this.state.deliveries.map(delivery => (
+                <tr className="delivery-row">
+                  <th scope="row">{delivery.delivery_id} </th>
+                  <td>{delivery.address} </td>
+                  <td>{delivery.deadline} </td>
+                  <td>{delivery.status} </td>
+                  <td>{delivery.driver_id}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }
