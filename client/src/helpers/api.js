@@ -54,7 +54,7 @@ export const getDeliveryById = delivery_id => {
 };
 
 export const getMyDeliveries = driver_id => {
-  return instance.get(`/api/deliveries/${driver_id}`);
+  return instance.get(`/api/deliveries/driver/${driver_id}`);
 };
 
 export const getUserProfile = () => {

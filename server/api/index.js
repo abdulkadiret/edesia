@@ -29,7 +29,7 @@ router.post("/users", (req, res) => {
     body.email,
     body.city,
     body.password,
-    body.postcode,
+    body.postcode
   ).then(() => {
     res.send();
   });
@@ -71,7 +71,7 @@ router.get("/deliveries/:deliveryId", async (req, res) => {
   }
 });
 
-router.get("/deliveries/:driverId", async (req, res) => {
+router.get("/deliveries/driver/:driverId", async (req, res) => {
   const driver_id = req.params.driverId;
   const data = await db.filterDeliveriesByDriverId(driver_id);
   res.send(data);
@@ -139,6 +139,5 @@ router.get("/admin/users", (req, res) => {
     res.send(data);
   });
 });
-
 
 module.exports = router;
