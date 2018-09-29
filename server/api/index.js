@@ -61,6 +61,19 @@ router.post("/admin/deliveries", (req, res) => {
     res.send();
   });
 });
+router.post("/admin/users", (req, res) => {
+  const body = req.body;
+  db.addDrivers(
+    body.name,
+    body.email,
+    body.city,
+    body.postcode,
+    body.role,
+    body.password
+  ).then(() => {
+    res.send();
+  });
+});
 router.get("/deliveries/:deliveryId", async (req, res) => {
   const delivery_id = req.params.deliveryId;
   const data = await db.filterDeliveryById(delivery_id);
@@ -68,6 +81,27 @@ router.get("/deliveries/:deliveryId", async (req, res) => {
     res.send(data);
   } else {
     res.send(404);
+  }
+});
+
+router.get("/drivers/:userId", async (req, res) => {
+  const user_id = req.params.userId;
+  const data = await db.filterDriverById(user_id);
+  if (data) {
+    res.send(data);
+  } else {
+    res.send(404);
+  }
+});
+
+router.put("/drivers/:user_id", async (req, res) => {
+  const { body } = req;
+  try {
+    await db.editDriverAdmin(req.params.user_id, body);
+    res.status(200).json({ success: true, data: {} });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ success: false, error: error });
   }
 });
 
