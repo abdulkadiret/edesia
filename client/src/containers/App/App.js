@@ -10,7 +10,6 @@ import Register from "../../components/Register/Register";
 import DeliveryDetails from "../DeliveryDetails/DeliveryDetails";
 import Dashboard from "../../components/Dashboard/Dashboard";
 import DeliveriesAdmin from "../DeliveriesAdmin/DeliveriesAdmin";
-import Logo from "../../components/Logo";
 import UpdateDelivery from "../DeliveriesAdmin/UpdateDelivery";
 import DeleteDelivery from "../DeliveriesAdmin/DeleteDelivery";
 import AddDeliveries from "../DeliveriesAdmin/AddDeliveries";
