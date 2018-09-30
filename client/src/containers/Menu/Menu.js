@@ -66,47 +66,47 @@ class Menu extends Component {
             <ul className="navbar-nav mr-auto">
               <li className="navbar-brand active">
                 <Link to="/" className="nav-link">
-                  Home
+                  HOME
                 </Link>
               </li>
               {token && userRole === "admin" ? (
                 <li className="navbar-brand">
                   <Link to="/admin" className="nav-link ">
-                    Edesia admin
+                    EDESIA ADMIN
                   </Link>
                 </li>
               ) : null}
 
               <li className="navbar-brand">
                 <Link to="/deliveries" className="nav-link">
-                  Deliveries
+                  DELIVERIES
                 </Link>
               </li>
               {token && userRole === "driver" ? (
                 <li className="navbar-brand">
                   <Link to="/mydeliveries" className="nav-link">
-                    My Deliveries
+                    My DELIVERIES
                   </Link>
                 </li>
               ) : null}
               {!token ? (
                 <li className="navbar-brand">
                   <Link to="/login" className="nav-link">
-                    Login
+                    LOGIN
                   </Link>
                 </li>
               ) : null}
               {!token ? (
                 <li className="navbar-brand">
                   <Link to="/register" className="nav-link">
-                    Register
+                    REGISTER
                   </Link>
                 </li>
               ) : null}
               {token && userRole === "driver" ? (
                 <li className="navbar-brand">
                   <Link to="/profile" className="nav-link">
-                    Profile
+                    PROFILE
                   </Link>
                 </li>
               ) : null}
@@ -116,7 +116,7 @@ class Menu extends Component {
                     className=" nav-link btn btn-outline-primary"
                     onClick={this.logout}
                   >
-                    Logout
+                    LOGOUT
                   </button>
                 </li>
               ) : null}
