@@ -16,6 +16,17 @@ body {
 .form-signin .checkbox {
   font-weight: normal;
 }
+.form-signin label {
+  color: #f18957;
+  font-size: 18px;
+}
+.form-signin input {
+  background-color: #755ba3;
+  border-radius: 8px;
+}
+.form-signin ::placeholder {
+  color: white;
+}
 .form-signin .form-control {
   position: relative;
   height: auto;
