@@ -22,7 +22,7 @@ body {
 }
 .form-signin input {
   background-color: #755ba3;
-  border-radius: 8px;
+  border-radius: 5px;
 }
 .form-signin ::placeholder {
   color: white;
