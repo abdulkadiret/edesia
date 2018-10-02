@@ -5,7 +5,7 @@ import "./HighlightedLink.css";
 const HighlightedLink = props => {
   return (
     <div className="custom-link">
-      <button className="btn btn-primary" onClick={props.onClick}>
+      <button className="btn btn-success" onClick={props.onClick}>
         {props.text}
       </button>
     </div>
