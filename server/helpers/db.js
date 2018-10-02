@@ -94,7 +94,24 @@ const editDeliveryDetails = (delivery_id, data) => {
       status: data.status
     });
 };
-
+const editDriverAdmin = (user_id, data) => {
+  return knex
+    .table("users")
+    .where("user_id", "=", user_id)
+    .update({
+      name: data.name,
+      email: data.email,
+      city: data.city,
+      postcode: data.postcode,
+      role: data.role
+    });
+};
+const filterDriverById = userId => {
+  return knex("users")
+    .select()
+    .where({ user_id: userId })
+    .first();
+};
 const deleteDelivery = async delivery_id => {
   return await knex
     .table("deliveries")
@@ -117,6 +134,8 @@ module.exports = {
   filterDeliveryById,
   addDeliveries,
   deleteDelivery,
+  editDriverAdmin,
+  filterDriverById,
   addDrivers,
   filterDeliveriesByDriverId
 };
