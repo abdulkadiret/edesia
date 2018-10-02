@@ -17,6 +17,7 @@ import Menu from "../Menu/Menu";
 import MyDeliveries from "../MyDeliveries/MyDeliveries";
 import UsersDetail from "../UsersInfo/UsersDetail";
 import EditUser from "../../components/EditUser/EditUser";
+import UpdateDriverDetails from "../UsersInfo/UpdateDriverDetails";
 import addDrivers from "../UsersInfo/AddDrivers";
 
 class App extends Component {
@@ -31,11 +32,14 @@ class App extends Component {
           <Route exact path="/deliveries" component={Deliveries} />
           <Route exact path="/mydeliveries" component={MyDeliveries} />
           <Route path="/deliveries/:deliveryId" component={DeliveryDetails} />
-          <Route exact path="/admin/drivers/add" component={addDrivers} />
+          <Route
+            exact
+            path="/admin/drivers/edit/:userId(\d+)"
+            component={UpdateDriverDetails}
+          />
           <Route exact path="/admin/drivers" component={UsersDetail} />
-
+          <Route exact path="/admin/drivers/add" component={addDrivers} />
           <Route path="/admin/users/edit/:userId" component={EditUser} />
-
           <Route path="/login" component={Login} />
           <Route path="/register" component={Register} />
           <Route exact path="/admin" component={Dashboard} />
