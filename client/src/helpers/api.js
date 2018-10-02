@@ -1,6 +1,5 @@
 const axios = require("axios");
 const API_URL = process.env.REACT_APP_API_URI || "/";
-
 const instance = axios.create({
   baseURL: API_URL
 });
@@ -39,6 +38,16 @@ export const getDeliveriesAdmin = () => {
 
 export const getUsersAdmin = () => {
   return instance.get("/api/admin/users");
+};
+export const addDrivers = (name, email, password, city, postcode, role) => {
+  return instance.post("/api/admin/users", {
+    name,
+    email,
+    city,
+    postcode,
+    role,
+    password
+  });
 };
 
 export const addDeliveries = (address, deadline, status, store_name) => {
