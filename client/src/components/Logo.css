@@ -1,0 +1,15 @@
+.App-logo {
+  font-family: "Great Vibes", cursive;
+  font-style: italic;
+  font-weight: bolder;
+  font-size: 45px;
+  margin-left: 30px;
+}
+
+.logo {
+  color: black;
+}
+
+.logo:hover {
+  text-decoration: none;
+}

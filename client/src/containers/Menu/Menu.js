@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from "axios";
 import HighlightedLink from "../../components/HighlightedLink/HighlightedLink";
 import { withRouter, Link } from "react-router-dom";
+import Logo from "../../components/Logo";
+import "./Menu.css";
 
 class Menu extends Component {
   state = {
@@ -46,8 +48,8 @@ class Menu extends Component {
             onClick={this.goToDriverRegistration}
           />
         ) : null}
-
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <Logo />
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <button
             className="navbar-toggler"
             type="button"
@@ -64,47 +66,56 @@ class Menu extends Component {
             <ul className="navbar-nav mr-auto">
               <li className="navbar-brand active">
                 <Link to="/" className="nav-link">
-                  Home
+                  HOME
                 </Link>
               </li>
+
+              {token ? (
+                <li className="navbar-brand">
+                  <Link to="/profile" className="nav-link">
+                    Profile
+                  </Link>
+                </li>
+              ) : null}
+
               {token && userRole === "admin" ? (
                 <li className="navbar-brand">
                   <Link to="/admin" className="nav-link ">
-                    Edesia admin
+                    EDESIA ADMIN
                   </Link>
                 </li>
               ) : null}
 
               <li className="navbar-brand">
                 <Link to="/deliveries" className="nav-link">
-                  Deliveries
+                  DELIVERIES
                 </Link>
               </li>
               {token && userRole === "driver" ? (
                 <li className="navbar-brand">
                   <Link to="/mydeliveries" className="nav-link">
-                    My Deliveries
+                    My DELIVERIES
                   </Link>
                 </li>
               ) : null}
               {!token ? (
                 <li className="navbar-brand">
                   <Link to="/login" className="nav-link">
-                    Login
+                    LOGIN
                   </Link>
                 </li>
               ) : null}
               {!token ? (
                 <li className="navbar-brand">
                   <Link to="/register" className="nav-link">
-                    Register
+                    REGISTER
                   </Link>
                 </li>
               ) : null}
               {token && userRole === "driver" ? (
                 <li className="navbar-brand">
                   <Link to="/profile" className="nav-link">
-                    Profile
+                    PROFILE
                   </Link>
                 </li>
               ) : null}
@@ -114,7 +125,7 @@ class Menu extends Component {
                     className=" nav-link btn btn-outline-primary"
                     onClick={this.logout}
                   >
-                    Logout
+                    LOGOUT
                   </button>
                 </li>
               ) : null}

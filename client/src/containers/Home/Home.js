@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
-import InfoBubble from "../../components/InfoBubble/InfoBubble";
 import { getDeliveries } from "../../helpers/api";
 import DeliveryCard from "../../components/DeliveryCard/deliveryCard";
 import "./home.css";
+import Track from "../../components/Track";
 
 class Home extends Component {
   constructor() {
@@ -22,11 +22,9 @@ class Home extends Component {
     return (
       <div className="App">
         <h1 className="App-title">Welcome to Edesia</h1>
-
         <p className="App-intro" />
         <h2>Food pickups report </h2>
-        <InfoBubble number="50" text="Deliveries this week" />
-
+        <Track info-number="number" />
         <div className="App">
           <h2> Current Available Deliveries </h2>
           <div className="container">

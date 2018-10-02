@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Logo.css";
 
 const Logo = () => {
   return (
-    <h1 className="App-logo">
-      <Link to="/"> Edesia </Link>
-    </h1>
+    <span className="App-logo">
+      <Link className="logo" to="/">
+        Edesia
+      </Link>
+    </span>
   );
 };
 export default Logo;
