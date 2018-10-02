@@ -70,10 +70,10 @@ class Menu extends Component {
                 </Link>
               </li>
 
-              {token ? (
+              {token && userRole === "driver" ? (
                 <li className="navbar-brand">
                   <Link to="/profile" className="nav-link">
-                    Profile
+                    PROFILE
                   </Link>
                 </li>
               ) : null}
@@ -94,7 +94,7 @@ class Menu extends Component {
               {token && userRole === "driver" ? (
                 <li className="navbar-brand">
                   <Link to="/mydeliveries" className="nav-link">
-                    My DELIVERIES
+                    MY DELIVERIES
                   </Link>
                 </li>
               ) : null}
