@@ -69,6 +69,15 @@ class Menu extends Component {
                   HOME
                 </Link>
               </li>
+
+              {token ? (
+                <li className="navbar-brand">
+                  <Link to="/profile" className="nav-link">
+                    Profile
+                  </Link>
+                </li>
+              ) : null}
+
               {token && userRole === "admin" ? (
                 <li className="navbar-brand">
                   <Link to="/admin" className="nav-link ">
