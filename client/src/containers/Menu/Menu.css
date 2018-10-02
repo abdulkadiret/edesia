@@ -1,0 +1,10 @@
+.navbar-collapse > .navbar-nav > .navbar-brand:not(:last-child) {
+  border-right: solid 1.3px;
+  padding: 0;
+  margin: 3px;
+}
+
+.navbar navbar-expand-lg navbar-light bg-light {
+  padding-top: 0;
+  padding-bottom: 0;
+}
