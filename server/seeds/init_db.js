@@ -1,5 +1,15 @@
 exports.seed = async (knex, Promise) => {
-  knex("users")
+  await knex("roles")
+    .del()
+    .then(function() {
+      // Inserts seed entries
+      return knex("roles").insert([
+        { role_name: "user" },
+        { role_name: "admin" },
+        { role_name: "driver" }
+      ]);
+    });
+  await knex("users")
     .del()
     .then(function() {
       // Inserts seed entries
@@ -9,14 +19,16 @@ exports.seed = async (knex, Promise) => {
           email: "mat@gmail.com",
           password: "password1",
           city: "Glasgow",
-          postcode: "G3 4EF"
+          postcode: "G3 4EF",
+          role: "driver"
         },
         {
           name: "awet",
           email: "awet@yahoo.com",
           password: "password2",
           city: "Glasgow",
-          postcode: "G1 5EF"
+          postcode: "G1 5EF",
+          role: "admin"
         }
       ]);
     });

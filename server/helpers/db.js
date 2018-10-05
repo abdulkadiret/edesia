@@ -5,9 +5,9 @@ const knex = require("knex")(config);
 const getUsers = () => {
   return knex.select().from("users");
 };
-const saveUser = (name, email, city, password, postcode) => {
+const saveUser = (name, email, password, city, postcode, role) => {
   return knex("users")
-    .insert({ name, email, city, password, postcode })
+    .insert({ name, email, password, city, postcode, role })
     .returning("*");
 };
 const getSingleUser = (email, password) => {
@@ -20,6 +20,14 @@ const getUserProfile = userId => {
     .select("user_id", "email", "name", "postcode", "city")
     .where({ user_id: userId })
     .first();
+};
+
+const addDrivers = (name, email, city, postcode, role, password) => {
+  var data = { name, email, city, postcode, role, password };
+  console.log(data);
+  return knex("users")
+    .insert({ name, email, city, postcode, role, password })
+    .returning("*");
 };
 const getDeliveries = () => {
   return knex.select().from("deliveries");
@@ -35,6 +43,12 @@ const filterDeliveryById = deliveryId => {
     .select()
     .where({ delivery_id: deliveryId })
     .first();
+};
+
+const filterDeliveriesByDriverId = driverId => {
+  return knex("deliveries")
+    .select()
+    .where({ driver_id: driverId });
 };
 
 const getStores = () => {
@@ -77,14 +91,32 @@ const editDeliveryDetails = (delivery_id, data) => {
       address: data.address,
       store_name: data.store_name,
       deadline: data.deadline,
-      status: data.status,
+      status: data.status
     });
 };
-
+const editDriverAdmin = (user_id, data) => {
+  return knex
+    .table("users")
+    .where("user_id", "=", user_id)
+    .update({
+      name: data.name,
+      email: data.email,
+      city: data.city,
+      postcode: data.postcode,
+      role: data.role
+    });
+};
+const filterDriverById = userId => {
+  return knex("users")
+    .select()
+    .where({ user_id: userId })
+    .first();
+};
 const deleteDelivery = async delivery_id => {
   return await knex
     .table("deliveries")
-    .where({ delivery_id }).del();
+    .where({ delivery_id })
+    .del();
 };
 
 module.exports = {
@@ -101,5 +133,9 @@ module.exports = {
   saveUser,
   filterDeliveryById,
   addDeliveries,
-  deleteDelivery
+  deleteDelivery,
+  editDriverAdmin,
+  filterDriverById,
+  addDrivers,
+  filterDeliveriesByDriverId
 };

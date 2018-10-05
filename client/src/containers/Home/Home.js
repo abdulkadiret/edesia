@@ -1,8 +1,8 @@
 import React, { Component, Fragment } from "react";
-import InfoBubble from "../../components/InfoBubble/InfoBubble";
 import { getDeliveries } from "../../helpers/api";
 import DeliveryCard from "../../components/DeliveryCard/deliveryCard";
 import "./home.css";
+import Track from "../../components/Track";
 
 class Home extends Component {
   constructor() {
@@ -21,14 +21,13 @@ class Home extends Component {
     const { deliveriesList } = this.state;
     return (
       <div className="App">
-        <h1 className="App-title">Welcome to Edesia</h1>
-
+        <h1 className="App-title">WELLCOME TO EDESIA</h1>
         <p className="App-intro" />
-        <h2>Food pickups report </h2>
-        <InfoBubble number="50" text="Deliveries this week" />
-
+        <h2>FOOD PICKUP REPORT </h2>
+        <Track info-number="number" />
+        <br />
         <div className="App">
-          <h2> Current Available Deliveries </h2>
+          <h2> CURRENT AVAILABLE DELIVERIES</h2>
           <div className="container">
             <div className="row delivery-row">
               {deliveriesList &&

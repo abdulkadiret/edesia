@@ -65,7 +65,7 @@ class Login extends Component {
             required
           />
           <button
-            className="btn btn-lg btn-primary btn-block"
+            className="btn btn-lg btn-success btn-block"
             onClick={this.onSubmit}
           >
             Login

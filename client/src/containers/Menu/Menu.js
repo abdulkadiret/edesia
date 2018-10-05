@@ -2,17 +2,34 @@ import React, { Component } from "react";
 import axios from "axios";
 import HighlightedLink from "../../components/HighlightedLink/HighlightedLink";
 import { withRouter, Link } from "react-router-dom";
+import Logo from "../../components/Logo";
+import "./Menu.css";
 
 class Menu extends Component {
   state = {
-    loggedIn: false
+    loggedIn: false,
+    role: ""
   };
-  componentDidMount = async () => {
+  componentDidMount = () => {
     const token = localStorage.getItem("jwtToken");
     if (token) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
     }
+    const user = localStorage.getItem("user");
+    if (user) {
+      try {
+        const role = JSON.parse(user).role;
+        this.setState({
+          role: role
+        });
+      } catch (e) {
+        this.setState({ role: "" });
+      }
+    } else {
+      this.setState({ role: "" });
+    }
   };
+
   logout = () => {
     localStorage.removeItem("jwtToken");
     window.location = "/";
@@ -22,6 +39,7 @@ class Menu extends Component {
   };
   render() {
     const token = localStorage.getItem("jwtToken");
+    const { role: userRole } = this.state;
     return (
       <div>
         {!token ? (
@@ -30,10 +48,10 @@ class Menu extends Component {
             onClick={this.goToDriverRegistration}
           />
         ) : null}
-
+        <Logo />
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -41,45 +59,63 @@ class Menu extends Component {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon" />
+            <span className="navbar-toggler-icon" />
           </button>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav mr-auto">
               <li className="navbar-brand active">
-                <Link to="/" class="nav-link">
-                  Home
-                </Link>
-              </li>
-              <li className="navbar-brand">
-                <Link to="/admin" class="nav-link ">
-                  Edesia admin
+                <Link to="/" className="nav-link">
+                  HOME
                 </Link>
               </li>
 
+              {token && userRole === "driver" ? (
+                <li className="navbar-brand">
+                  <Link to="/profile" className="nav-link">
+                    PROFILE
+                  </Link>
+                </li>
+              ) : null}
+
+              {token && userRole === "admin" ? (
+                <li className="navbar-brand">
+                  <Link to="/admin" className="nav-link ">
+                    EDESIA ADMIN
+                  </Link>
+                </li>
+              ) : null}
+
               <li className="navbar-brand">
-                <Link to="/deliveries" class="nav-link">
-                  Deliveries
+                <Link to="/deliveries" className="nav-link">
+                  DELIVERIES
                 </Link>
               </li>
-              {!token ? (
+              {token && userRole === "driver" ? (
                 <li className="navbar-brand">
-                  <Link to="/login" class="nav-link">
-                    Login
+                  <Link to="/mydeliveries" className="nav-link">
+                    MY DELIVERIES
                   </Link>
                 </li>
               ) : null}
               {!token ? (
                 <li className="navbar-brand">
-                  <Link to="/register" class="nav-link">
-                    Register
+                  <Link to="/login" className="nav-link">
+                    LOGIN
                   </Link>
                 </li>
               ) : null}
-              {token ? (
+              {!token ? (
                 <li className="navbar-brand">
-                  <Link to="/profile" class="nav-link">
-                    Profile
+                  <Link to="/register" className="nav-link">
+                    REGISTER
+                  </Link>
+                </li>
+              ) : null}
+              {token && userRole === "driver" ? (
+                <li className="navbar-brand">
+                  <Link to="/profile" className="nav-link">
+                    PROFILE
                   </Link>
                 </li>
               ) : null}
@@ -89,12 +125,12 @@ class Menu extends Component {
                     className=" nav-link btn btn-outline-primary"
                     onClick={this.logout}
                   >
-                    Logout
+                    LOGOUT
                   </button>
                 </li>
               ) : null}
             </ul>
-            <form class="form-inline my-2 my-lg-0">
+            <form className="form-inline my-2 my-lg-0">
               <input
                 className="form-control mr-sm-2"
                 type="search"

@@ -1,6 +1,5 @@
 const axios = require("axios");
 const API_URL = process.env.REACT_APP_API_URI || "/";
-
 const instance = axios.create({
   baseURL: API_URL
 });
@@ -20,6 +19,14 @@ export const updateDeliveryDetail = async (delivery_id, content) => {
     .put(`/api/deliveries/${delivery_id}`, content)
     .then(res => res.data);
 };
+export const updateDriverDetail = async (user_id, content) => {
+  return await instance
+    .put(`/api/drivers/${user_id}`, content)
+    .then(res => res.data);
+};
+export const getDriverById = user_id => {
+  return instance.get(`/api/drivers/${user_id}`);
+};
 
 export const deleteDelivery = async delivery_id => {
   return await instance.delete(`/api/deliveries/${delivery_id}`);
@@ -36,6 +43,21 @@ export const getDeliveries = async () => {
 export const getDeliveriesAdmin = () => {
   return instance.get("/api/admin/deliveries");
 };
+
+export const getUsersAdmin = () => {
+  return instance.get("/api/admin/users");
+};
+export const addDrivers = (name, email, password, city, postcode, role) => {
+  return instance.post("/api/admin/users", {
+    name,
+    email,
+    city,
+    postcode,
+    role,
+    password
+  });
+};
+
 export const addDeliveries = (address, deadline, status, store_name) => {
   return instance.post("/api/admin/deliveries", {
     address,
@@ -46,6 +68,10 @@ export const addDeliveries = (address, deadline, status, store_name) => {
 };
 export const getDeliveryById = delivery_id => {
   return instance.get(`/api/deliveries/${delivery_id}`);
+};
+
+export const getMyDeliveries = driver_id => {
+  return instance.get(`/api/deliveries/driver/${driver_id}`);
 };
 
 export const getUserProfile = () => {
