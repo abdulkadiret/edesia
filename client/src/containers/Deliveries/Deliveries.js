@@ -20,6 +20,8 @@ class Deliveries extends Component {
     return (
       <div className="App">
         <h2>Deliveries </h2>
+        <h5> ALL DELVERIES | AVAILABLE DELIVERIES</h5>
+        <br />
         <div className="container">
           <div className="row delivery-row">
             {deliveriesList &&

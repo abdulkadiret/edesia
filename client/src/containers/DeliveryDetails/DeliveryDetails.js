@@ -40,8 +40,17 @@ class DeliveryDetails extends Component {
             </p>
           </div>
         ) : (
-          <div>
+          <div className="delivery-details">
             <h4> Delivery Details</h4>
+            <p>
+              This Delivery is from a store in {deliveryInfo.address} to our
+              address, the deadline is {deliveryInfo.deadline}. If you are
+              available for this pick up please click the I can pick up button
+              below. If you can't see the I can pick up button that means you
+              haven't logged in, So please login if you already have an account
+              or register if you don't have an account yet. Thank you for you
+              help !!
+            </p>
             <ul>
               <li>
                 Delivery Id <strong>{deliveryInfo.delivery_id}</strong>
