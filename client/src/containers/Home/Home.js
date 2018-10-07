@@ -25,7 +25,7 @@ class Home extends Component {
         <Track info-number="number" />
         <br />
         <div className="App">
-          <h2> Current available deliveries</h2>
+          <h3> Current available deliveries</h3>
           <div className="container">
             <div className="row delivery-row">
               {deliveriesList &&
