@@ -21,9 +21,7 @@ class Home extends Component {
     const { deliveriesList } = this.state;
     return (
       <div className="App">
-        <h1 className="App-title">WELLCOME TO EDESIA</h1>
         <p className="App-intro" />
-        <h2>FOOD PICKUP REPORT </h2>
         <Track info-number="number" />
         <br />
         <div className="App">
