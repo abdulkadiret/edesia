@@ -1,3 +1,6 @@
+.app {
+  background-color: white;
+}
 .App {
   text-align: center;
 }
@@ -22,7 +25,7 @@ App-header li {
 }
 
 .App-header a {
-  color: white
+  color: white;
 }
 
 @keyframes App-logo-spin {
