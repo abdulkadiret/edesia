@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import HighlightedLink from "../../components/HighlightedLink/HighlightedLink";
 import { withRouter, Link } from "react-router-dom";
 import Logo from "../../components/Logo";
 import "./Menu.css";
@@ -42,12 +41,6 @@ class Menu extends Component {
     const { role: userRole } = this.state;
     return (
       <div>
-        {!token ? (
-          <HighlightedLink
-            text="Register as driver"
-            onClick={this.goToDriverRegistration}
-          />
-        ) : null}
         <Logo />
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
           <button
