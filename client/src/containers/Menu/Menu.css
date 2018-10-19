@@ -4,11 +4,32 @@
   margin: 3px;
 }
 
-.navbar navbar-expand-lg navbar-light bg-light {
-  padding-top: 0;
-  padding-bottom: 0;
+.bg-light {
+  padding: 0;
 }
 
 .navbar-brand {
   text-transform: uppercase;
+  font-size: 18px;
+  margin: 0;
+}
+
+.navbar-default {
+  padding-top: 0.5em 0.5em;
+  border: 0px;
+}
+
+.logo {
+  color: black;
+}
+
+.container {
+  margin: 0 0;
+  width: 75%;
+  border: 0;
+  padding: 0;
+}
+
+.nav-link {
+  padding: 0;
 }

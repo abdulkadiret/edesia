@@ -41,89 +41,92 @@ class Menu extends Component {
     const token = localStorage.getItem("jwtToken");
     const { role: userRole } = this.state;
     return (
-      <header>
-        <div>
-          <Logo />
-          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <button
-              className="navbar-toggler"
-              type="button"
-              data-toggle="collapse"
-              data-target="#navbarSupportedContent"
-              aria-controls="navbarSupportedContent"
-              aria-expanded="false"
-              aria-label="Toggle navigation"
-            >
-              <span className="navbar-toggler-icon" />
-            </button>
-
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
-              <ul className="navbar-nav mr-auto">
-                <li className="navbar-brand active">
-                  <Link to="/" className="nav-link">
-                    home
-                  </Link>
-                </li>
-
-                {token && userRole === "admin" ? (
-                  <li className="navbar-brand">
-                    <Link to="/admin" className="nav-link ">
-                      edesia admin
-                    </Link>
-                  </li>
-                ) : null}
-
-                <li className="navbar-brand">
-                  <Link to="/deliveries" className="nav-link">
-                    deliveries
-                  </Link>
-                </li>
-                {token && userRole === "driver" ? (
-                  <li className="navbar-brand">
-                    <Link to="/mydeliveries" className="nav-link">
-                      my deliveries
-                    </Link>
-                  </li>
-                ) : null}
-                {!token ? (
-                  <li className="navbar-brand">
-                    <Link to="/login" className="nav-link">
-                      login
-                    </Link>
-                  </li>
-                ) : null}
-                {!token ? (
-                  <li className="navbar-brand">
-                    <Link to="/register" className="nav-link">
-                      register
-                    </Link>
-                  </li>
-                ) : null}
-                {token && userRole === "driver" ? (
-                  <li className="navbar-brand">
-                    <Link to="/profile" className="nav-link">
-                      profile
-                    </Link>
-                  </li>
-                ) : null}
-                {token ? (
-                  <li className="navbar-brand">
-                    <button
-                      className=" nav-link btn btn-outline-primary"
-                      onClick={this.logout}
-                    >
-                      logout
-                    </button>
-                  </li>
-                ) : null}
-              </ul>
+      <div className="navbar navbar-default">
+        <div className="container">
+          <header className="navbar-header">
+            <div className="navbar-left logo ">
+              <Logo />
             </div>
-          </nav>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+              <button
+                className="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+                <span className="navbar-toggler-icon" />
+              </button>
+              <div
+                className="collapse navbar-collapse"
+                id="navbarSupportedContent"
+              >
+                <ul className="navbar-nav mr-auto">
+                  <li className="navbar-brand active">
+                    <Link to="/" className="nav-link">
+                      home
+                    </Link>
+                  </li>
+
+                  {token && userRole === "admin" ? (
+                    <li className="navbar-brand">
+                      <Link to="/admin" className="nav-link ">
+                        edesia admin
+                      </Link>
+                    </li>
+                  ) : null}
+
+                  <li className="navbar-brand">
+                    <Link to="/deliveries" className="nav-link">
+                      deliveries
+                    </Link>
+                  </li>
+                  {token && userRole === "driver" ? (
+                    <li className="navbar-brand">
+                      <Link to="/mydeliveries" className="nav-link">
+                        my deliveries
+                      </Link>
+                    </li>
+                  ) : null}
+                  {!token ? (
+                    <li className="navbar-brand">
+                      <Link to="/login" className="nav-link">
+                        login
+                      </Link>
+                    </li>
+                  ) : null}
+                  {!token ? (
+                    <li className="navbar-brand">
+                      <Link to="/register" className="nav-link">
+                        register
+                      </Link>
+                    </li>
+                  ) : null}
+                  {token && userRole === "driver" ? (
+                    <li className="navbar-brand">
+                      <Link to="/profile" className="nav-link">
+                        profile
+                      </Link>
+                    </li>
+                  ) : null}
+                  {token ? (
+                    <li className="navbar-brand">
+                      <button
+                        className=" nav-link btn btn-outline-primary"
+                        onClick={this.logout}
+                      >
+                        logout
+                      </button>
+                    </li>
+                  ) : null}
+                </ul>
+              </div>
+            </nav>
+          </header>
         </div>
-      </header>
+      </div>
     );
   }
 }
