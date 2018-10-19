@@ -66,7 +66,7 @@ class Menu extends Component {
                 <ul className="navbar-nav mr-auto">
                   <li className="navbar-brand active">
                     <Link to="/" className="nav-link">
-                      home
+                      <i className="fas fa-home " /> home
                     </Link>
                   </li>
 
@@ -80,7 +80,7 @@ class Menu extends Component {
 
                   <li className="navbar-brand">
                     <Link to="/deliveries" className="nav-link">
-                      deliveries
+                      <i className="fas fa-truck" /> deliveries
                     </Link>
                   </li>
                   {token && userRole === "driver" ? (
@@ -93,21 +93,21 @@ class Menu extends Component {
                   {!token ? (
                     <li className="navbar-brand">
                       <Link to="/login" className="nav-link">
-                        login
+                        <i className="fas fa-key" /> login
                       </Link>
                     </li>
                   ) : null}
                   {!token ? (
                     <li className="navbar-brand">
                       <Link to="/register" className="nav-link">
-                        register
+                        <i className="fas fa-user-plus" /> register
                       </Link>
                     </li>
                   ) : null}
                   {token && userRole === "driver" ? (
                     <li className="navbar-brand">
                       <Link to="/profile" className="nav-link">
-                        profile
+                        <i className="fas fa-user-circle" /> profile
                       </Link>
                     </li>
                   ) : null}
@@ -117,7 +117,7 @@ class Menu extends Component {
                         className=" nav-link btn btn-outline-primary"
                         onClick={this.logout}
                       >
-                        logout
+                        <i className="fas fa-lock" /> logout
                       </button>
                     </li>
                   ) : null}
