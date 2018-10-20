@@ -20,9 +20,23 @@ class AddDeliveries extends Component {
 
   onSubmit = input => {
     input.preventDefault();
-    const { address, deadline, status, store_name } = this.state;
+    const {
+      address,
+      deadline,
+      status,
+      store_name,
+      latitude,
+      longitude
+    } = this.state;
 
-    addDeliveries(address, deadline, status, store_name).then(result => {
+    addDeliveries(
+      address,
+      deadline,
+      status,
+      store_name,
+      latitude,
+      longitude
+    ).then(result => {
       this.props.history.push("/admin/Deliveries");
     });
   };
@@ -58,6 +72,30 @@ class AddDeliveries extends Component {
                 required
               />
             </div>
+            <div className="form-group">
+              <label for="Latitude">Latitude</label>
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Latitude"
+                name="latitude"
+                onChange={this.onchange}
+                required
+              />
+            </div>
+
+            <div className="form-group">
+              <label for="Longitude">Longitude</label>
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Longitude"
+                name="longitude"
+                onChange={this.onchange}
+                required
+              />
+            </div>
+
             <div className="form-group">
               <label for="deadline">Deadline</label>
               <input
