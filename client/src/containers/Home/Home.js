@@ -3,6 +3,7 @@ import { getDeliveries } from "../../helpers/api";
 import DeliveryCard from "../../components/DeliveryCard/deliveryCard";
 import "./home.css";
 import Track from "../../components/Track";
+import Map from "../../components/Map/Map";
 
 class Home extends Component {
   constructor() {
@@ -28,6 +29,15 @@ class Home extends Component {
         <br />
         <div className="App">
           <h2> CURRENT AVAILABLE DELIVERIES</h2>
+
+          <Map
+            isMarkerShown
+            googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places"
+            loadingElement={<div style={{ height: `100%` }} />}
+            containerElement={<div style={{ height: `400px` }} />}
+            mapElement={<div style={{ height: `100%` }} />}
+          />
+
           <div className="container">
             <div className="row delivery-row">
               {deliveriesList &&
