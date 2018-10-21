@@ -33,6 +33,7 @@ class Menu extends Component {
     localStorage.removeItem("jwtToken");
     window.location = "/";
   };
+
   goToDriverRegistration = () => {
     this.props.history.push("/register");
   };
@@ -40,32 +41,31 @@ class Menu extends Component {
   render() {
     const token = localStorage.getItem("jwtToken");
     const { role: userRole } = this.state;
+
     return (
-      <div className="navbar navbar-default">
-        <div className="container">
-          <header className="navbar-header">
-            <div className="navbar-left logo ">
+      <header className="navbar-header">
+        <div className="navbar navbar-default">
+          <div className="navbar-left">
+            <div className="navbar-logo ">
               <Logo />
             </div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+            <nav className="navbar-nav navbar-expand-lg navbar-light bg-light">
               <button
                 className="navbar-toggler"
                 type="button"
                 data-toggle="collapse"
-                data-target="#navbarSupportedContent"
+                data-target="#collapsibleContent"
                 aria-controls="navbarSupportedContent"
                 aria-expanded="false"
                 aria-label="Toggle navigation"
               >
                 <span className="navbar-toggler-icon" />
               </button>
-              <div
-                className="collapse navbar-collapse"
-                id="navbarSupportedContent"
-              >
+
+              <div className="collapse navbar-collapse" id="collapsibleContent">
                 <ul className="navbar-nav mr-auto">
-                  <li className="navbar-brand active">
-                    <Link to="/" className="nav-link">
+                  <li className="navbar-brand active ">
+                    <Link to="/" className="nav-link ">
                       <i className="fas fa-home " /> home
                     </Link>
                   </li>
@@ -73,7 +73,7 @@ class Menu extends Component {
                   {token && userRole === "admin" ? (
                     <li className="navbar-brand">
                       <Link to="/admin" className="nav-link ">
-                        edesia admin
+                        <i class="fas fa-user-cog" /> admin
                       </Link>
                     </li>
                   ) : null}
@@ -97,6 +97,13 @@ class Menu extends Component {
                       </Link>
                     </li>
                   ) : null}
+                  {token ? (
+                    <li className="navbar-brand">
+                      <a className="nav-link" onClick={this.logout}>
+                        <i className="fas fa-lock" /> logout
+                      </a>
+                    </li>
+                  ) : null}
                   {!token ? (
                     <li className="navbar-brand">
                       <Link to="/register" className="nav-link">
@@ -104,29 +111,12 @@ class Menu extends Component {
                       </Link>
                     </li>
                   ) : null}
-                  {token && userRole === "driver" ? (
-                    <li className="navbar-brand">
-                      <Link to="/profile" className="nav-link">
-                        <i className="fas fa-user-circle" /> profile
-                      </Link>
-                    </li>
-                  ) : null}
-                  {token ? (
-                    <li className="navbar-brand">
-                      <button
-                        className=" nav-link btn btn-outline-primary"
-                        onClick={this.logout}
-                      >
-                        <i className="fas fa-lock" /> logout
-                      </button>
-                    </li>
-                  ) : null}
                 </ul>
               </div>
             </nav>
-          </header>
+          </div>
         </div>
-      </div>
+      </header>
     );
   }
 }
