@@ -3,6 +3,7 @@ import axios from "axios";
 import { withRouter, Link } from "react-router-dom";
 import Logo from "../../components/Logo";
 import "./Menu.css";
+import RightNavBar from "../Menu/RightNavBar/RightNavBar";
 
 class Menu extends Component {
   state = {
@@ -113,6 +114,8 @@ class Menu extends Component {
                   ) : null}
                 </ul>
               </div>
+
+              <RightNavBar />
             </nav>
           </div>
         </div>
