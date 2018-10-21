@@ -6,7 +6,8 @@ class GetInitial extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: ""
+      name: "",
+      email: ""
     };
   }
 
@@ -26,7 +27,10 @@ class GetInitial extends Component {
   render() {
     return (
       <div>
-        <a className="initial navbar navbar-default">
+        <a
+          className="initial navbar navbar-default"
+          title={`${this.state.name}(${this.state.email})`}
+        >
           {this.state.name.charAt(0).toUpperCase()}
         </a>
       </div>
