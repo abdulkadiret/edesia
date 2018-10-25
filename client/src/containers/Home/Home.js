@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { getDeliveries } from "../../helpers/api";
 import DeliveryCard from "../../components/DeliveryCard/deliveryCard";
-import "./home.css";
 import Truck from "../../components/Truck/Truck";
+import DeliveryMap from "../DeliveryMap/DeliveryMap";
+import "./home.css";
+
 class Home extends Component {
   constructor() {
     super();
@@ -40,6 +42,10 @@ class Home extends Component {
                   );
                 })}
             </div>
+          </div>
+          <br />
+          <div>
+            <DeliveryMap />
           </div>
         </div>
       </div>
